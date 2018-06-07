@@ -7,16 +7,14 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
+import Alamofire
+import SwiftyJSON
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var txtCorreoElcrotnico: UITextField!
     
     @IBOutlet weak var txtPass: UITextField!
-    
-    @IBOutlet weak var btnIniciarSesion: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +25,43 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func logInToApp(_ sender: UIButton) {
+    
+    @IBAction func btnLoginPressed(_ sender: Any) {
         
-        
-         Auth.auth().singIn(WithEmail: txtCorreoElcrotnico.text, txtPass.text ) { (user,error)in
-            
-            
+        Alamofire.request("http://vmdev1.nexolink.com:90/TruequeAppAPI/api/UsersApp?username="+txtCorreoElcrotnico.text! + "&password=" +
+            txtPass.text!).responseJSON { response in
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                
+                if let json = response.result.value {
+                    print("JSON: \(json)") // serialized json response
+                }
+                
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                }
+                
+                let sJson = JSON(response.result.value)
+                if(sJson["Id"] != JSON.null){
+                    print(sJson["Name"])
+                    
+                    
+                    
+                    self.performSegue(withIdentifier: "login", sender: nil)
+                }else{
+                    print("ERROR GG MEN A dormir >V")
+                    
+                    let alert = UIAlertController(title: "Fatal FAIl!!", message: "ERROR!! ERROR!! ERROR!!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
         }
-    
-    
     }
-
+    
+    
 }
+
 
