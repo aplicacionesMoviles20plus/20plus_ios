@@ -28,8 +28,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnLoginPressed(_ sender: Any) {
         
-        Alamofire.request("http://vmdev1.nexolink.com:90/TruequeAppAPI/api/UsersApp?username="+txtCorreoElcrotnico.text! + "&password=" +
-            txtPass.text!).responseJSON { response in
+        Alamofire.request("http://192.168.1.2:9990/api/padres?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")                         // response serialization result
@@ -41,12 +40,9 @@ class ViewController: UIViewController {
                 if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                     print("Data: \(utf8Text)") // original server data as UTF8 string
                 }
-                
                 let sJson = JSON(response.result.value)
-                if(sJson["Id"] != JSON.null){
-                    print(sJson["Name"])
-                    
-                    
+                if(sJson["idpadre"] != JSON.null){
+                    print(sJson["nombre"])
                     
                     self.performSegue(withIdentifier: "login", sender: nil)
                 }else{
