@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
         //valido el login
         //performSegue(withIdentifier: "login", sender: self)
-        
+        /*
         
         //http://vmdev1.nexolink.com:90/TruequeAppAPI/api/UsersApp?username
         
@@ -60,10 +60,10 @@ class ViewController: UIViewController {
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }
-        }
+        }*/
         
         
-        /*
+        
         Alamofire.request("http://192.168.1.2:9990/api/padres?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response
@@ -75,12 +75,17 @@ class ViewController: UIViewController {
                 
                 if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                     print("Data: \(utf8Text)") // original server data as UTF8 string
+                    
                 }
+            
+            //doble llave en el json por eos no se peude leer con el; metodo usualk
                 let sJson = JSON(response.result.value)
-                if(sJson["idpadre"] != JSON.null){
-                    print(sJson["nombre"])
+                if(true){
+                    print(sJson["{nombre}"])
                     
                     self.performSegue(withIdentifier: "login", sender: nil)
+                    
+                    
                 }else{
                     print("ERROR GG MEN A dormir >V")
                     
@@ -90,7 +95,7 @@ class ViewController: UIViewController {
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }
-        }*/
+        }
     }
     
     

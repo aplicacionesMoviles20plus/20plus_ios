@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QTi-nR-chX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QTi-nR-chX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-638" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Registrar Usuario View Controller-->
         <scene sceneID="NPm-Tc-D0X">
             <objects>
-                <viewController id="d2b-7q-rhR" sceneMemberID="viewController">
+                <viewController id="d2b-7q-rhR" customClass="RegistrarUsuarioViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CbQ-Po-vKI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continuar"/>
                                 <connections>
+                                    <action selector="btnSavePressed:" destination="d2b-7q-rhR" eventType="touchUpInside" id="C1k-I2-hKW"/>
                                     <segue destination="M92-Vh-n4a" kind="show" id="1hl-p7-rVJ"/>
                                 </connections>
                             </button>
@@ -92,6 +93,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PTT-hQ-TL9"/>
                     </view>
+                    <connections>
+                        <outlet property="txtApellidoUsuario" destination="8eT-Np-QlE" id="wr0-uU-auP"/>
+                        <outlet property="txtContraseniaUsuario" destination="bXE-q0-v4y" id="zWL-gE-7SP"/>
+                        <outlet property="txtCorreo" destination="HWs-f7-SEs" id="4S1-ew-cip"/>
+                        <outlet property="txtNombreUsuario" destination="AmG-XZ-5tS" id="hej-IA-IL9"/>
+                        <outlet property="txtconfirmarcontreniaUsuario" destination="3Jv-OM-cNw" id="2S6-KX-tUN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14T-BA-t6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="iDa-K1-rJf" kind="relationship" relationship="rootViewController" id="A82-c6-zbd"/>
+                        <segue destination="qXo-KT-1o8" kind="relationship" relationship="rootViewController" id="Jn5-YQ-M2g"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10z-4L-H6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,20 +224,32 @@
             </objects>
             <point key="canvasLocation" x="3686" y="-548"/>
         </scene>
-        <!--Busca tu profesor!-->
-        <scene sceneID="hR2-W6-K0X">
+        <!--Busca tu profesor-->
+        <scene sceneID="KhE-94-oKu">
             <objects>
-                <viewController id="iDa-K1-rJf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n3B-Gd-PKb">
+                <tableViewController id="qXo-KT-1o8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Cr-f3-Tu2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Phr-72-JAz"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="vep-qs-tXc"/>
-                    <navigationItem key="navigationItem" title="Busca tu profesor!" id="INt-i8-OKK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jdG-ds-aTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yz8-oT-RgW">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yz8-oT-RgW" id="QiM-pP-nKs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qXo-KT-1o8" id="cm3-qI-ltE"/>
+                            <outlet property="delegate" destination="qXo-KT-1o8" id="BC1-hR-4Fx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Busca tu profesor" id="Otm-QX-wAk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylR-n3-DaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4654" y="-1237"/>
         </scene>

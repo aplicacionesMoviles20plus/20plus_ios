@@ -18,6 +18,9 @@
 		88200FCD20BE37AD000A5A1A /* _0plusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88200FCC20BE37AD000A5A1A /* _0plusUITests.swift */; };
 		A43612521C817ADEC92FB9E3 /* Pods_20plusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4091CBB9327A0D25E727B332 /* Pods_20plusUITests.framework */; };
 		FD33FFB520C625E9004C82A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */; };
+		FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9220D4A3C2002AB1D1 /* padre.swift */; };
+		FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */; };
+		FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		C0CFD8A01DF00E88EB219272 /* Pods_20plusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20plusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74E7719DA517BDA9A9C994 /* Pods-20plusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20plusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-20plusTests/Pods-20plusTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FDCFDF9220D4A3C2002AB1D1 /* padre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = padre.swift; sourceTree = "<group>"; };
+		FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarUsuarioViewController.swift; sourceTree = "<group>"; };
+		FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscarProfesoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 		88200FA020BE378A000A5A1A = {
 			isa = PBXGroup;
 			children = (
+				FDCFDF9420D4A794002AB1D1 /* Controllers */,
+				FDCFDF9120D4A375002AB1D1 /* Entities */,
 				88200FAB20BE378A000A5A1A /* 20plus */,
 				88200FC020BE37AD000A5A1A /* 20plusTests */,
 				88200FCB20BE37AD000A5A1A /* 20plusUITests */,
@@ -127,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				88200FAC20BE378A000A5A1A /* AppDelegate.swift */,
-				88200FAE20BE378A000A5A1A /* ViewController.swift */,
 				88200FB020BE378A000A5A1A /* Main.storyboard */,
 				88200FB320BE37AD000A5A1A /* Assets.xcassets */,
 				88200FB520BE37AD000A5A1A /* LaunchScreen.storyboard */,
@@ -166,6 +173,24 @@
 				4C5CD41588E6EA291DEA7FCA /* Pods-20plusUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FDCFDF9120D4A375002AB1D1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FDCFDF9220D4A3C2002AB1D1 /* padre.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FDCFDF9420D4A794002AB1D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				88200FAE20BE378A000A5A1A /* ViewController.swift */,
+				FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */,
+				FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +407,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				88200FAF20BE378A000A5A1A /* ViewController.swift in Sources */,
+				FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */,
+				FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */,
+				FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */,
 				88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
