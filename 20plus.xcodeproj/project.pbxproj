@@ -12,6 +12,13 @@
 		7FF0973C20D53638001B1AAE /* FavoritosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0973B20D53638001B1AAE /* FavoritosController.swift */; };
 		7FF0973E20D53694001B1AAE /* MensajesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0973D20D53694001B1AAE /* MensajesViewController.swift */; };
 		7FF0974020D536F6001B1AAE /* MisClasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0973F20D536F6001B1AAE /* MisClasesViewController.swift */; };
+		7FF0974220D53DC7001B1AAE /* MensajesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974120D53DC7001B1AAE /* MensajesProfeViewController.swift */; };
+		7FF0974620D53E04001B1AAE /* MisClasesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */; };
+		7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */; };
+		7FF0974A20D53E4E001B1AAE /* MiCuentaPadreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */; };
+		7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */; };
+		7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */; };
+		7FF0975020D5474E001B1AAE /* profesor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974F20D5474E001B1AAE /* profesor.swift */; };
 		88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88200FAC20BE378A000A5A1A /* AppDelegate.swift */; };
 		88200FAF20BE378A000A5A1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88200FAE20BE378A000A5A1A /* ViewController.swift */; };
 		88200FB220BE378A000A5A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88200FB020BE378A000A5A1A /* Main.storyboard */; };
@@ -51,6 +58,13 @@
 		7FF0973B20D53638001B1AAE /* FavoritosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosController.swift; sourceTree = "<group>"; };
 		7FF0973D20D53694001B1AAE /* MensajesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensajesViewController.swift; sourceTree = "<group>"; };
 		7FF0973F20D536F6001B1AAE /* MisClasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisClasesViewController.swift; sourceTree = "<group>"; };
+		7FF0974120D53DC7001B1AAE /* MensajesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensajesProfeViewController.swift; sourceTree = "<group>"; };
+		7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisClasesProfeViewController.swift; sourceTree = "<group>"; };
+		7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisAvancesProfeViewController.swift; sourceTree = "<group>"; };
+		7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCuentaPadreViewController.swift; sourceTree = "<group>"; };
+		7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfeViewController.swift; sourceTree = "<group>"; };
+		7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCuentaProfeViewController.swift; sourceTree = "<group>"; };
+		7FF0974F20D5474E001B1AAE /* profesor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profesor.swift; sourceTree = "<group>"; };
 		808D692E1AA309CA9C4F69F7 /* Pods_20plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88200FA920BE378A000A5A1A /* 20plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20plus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88200FAC20BE378A000A5A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +134,7 @@
 				7FF0973B20D53638001B1AAE /* FavoritosController.swift */,
 				7FF0973D20D53694001B1AAE /* MensajesViewController.swift */,
 				7FF0973F20D536F6001B1AAE /* MisClasesViewController.swift */,
+				7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */,
 			);
 			path = "Tabs Padre";
 			sourceTree = "<group>";
@@ -127,6 +142,11 @@
 		7FF0973620D535B6001B1AAE /* Tabs Profesor */ = {
 			isa = PBXGroup;
 			children = (
+				7FF0974120D53DC7001B1AAE /* MensajesProfeViewController.swift */,
+				7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */,
+				7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */,
+				7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */,
+				7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */,
 			);
 			path = "Tabs Profesor";
 			sourceTree = "<group>";
@@ -203,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				FDCFDF9220D4A3C2002AB1D1 /* padre.swift */,
+				7FF0974F20D5474E001B1AAE /* profesor.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -433,12 +454,19 @@
 			files = (
 				88200FAF20BE378A000A5A1A /* ViewController.swift in Sources */,
 				FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */,
+				7FF0974620D53E04001B1AAE /* MisClasesProfeViewController.swift in Sources */,
+				7FF0974A20D53E4E001B1AAE /* MiCuentaPadreViewController.swift in Sources */,
+				7FF0975020D5474E001B1AAE /* profesor.swift in Sources */,
 				FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */,
 				7FF0974020D536F6001B1AAE /* MisClasesViewController.swift in Sources */,
 				7FF0973E20D53694001B1AAE /* MensajesViewController.swift in Sources */,
+				7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */,
 				7FF0973C20D53638001B1AAE /* FavoritosController.swift in Sources */,
 				FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */,
+				7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */,
+				7FF0974220D53DC7001B1AAE /* MensajesProfeViewController.swift in Sources */,
 				88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */,
+				7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
