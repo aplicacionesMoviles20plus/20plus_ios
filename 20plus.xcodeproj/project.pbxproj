@@ -28,6 +28,7 @@
 		88200FCD20BE37AD000A5A1A /* _0plusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88200FCC20BE37AD000A5A1A /* _0plusUITests.swift */; };
 		A43612521C817ADEC92FB9E3 /* Pods_20plusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4091CBB9327A0D25E727B332 /* Pods_20plusUITests.framework */; };
 		FD33FFB520C625E9004C82A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */; };
+		FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */; };
 		FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9220D4A3C2002AB1D1 /* padre.swift */; };
 		FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */; };
 		FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */; };
@@ -84,6 +85,7 @@
 		C0CFD8A01DF00E88EB219272 /* Pods_20plusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20plusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74E7719DA517BDA9A9C994 /* Pods-20plusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20plusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-20plusTests/Pods-20plusTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesorInfoViewController.swift; sourceTree = "<group>"; };
 		FDCFDF9220D4A3C2002AB1D1 /* padre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = padre.swift; sourceTree = "<group>"; };
 		FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarUsuarioViewController.swift; sourceTree = "<group>"; };
 		FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscarProfesoresViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		7FF0973520D5359B001B1AAE /* Tabs Padre */ = {
 			isa = PBXGroup;
 			children = (
+				FD4D2F6A20D8B14B00E7851A /* SolicitarClase */,
 				FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */,
 				7FF0973B20D53638001B1AAE /* FavoritosController.swift */,
 				7FF0973D20D53694001B1AAE /* MensajesViewController.swift */,
@@ -217,6 +220,14 @@
 				4C5CD41588E6EA291DEA7FCA /* Pods-20plusUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD4D2F6A20D8B14B00E7851A /* SolicitarClase */ = {
+			isa = PBXGroup;
+			children = (
+				FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */,
+			);
+			path = SolicitarClase;
 			sourceTree = "<group>";
 		};
 		FDCFDF9120D4A375002AB1D1 /* Entities */ = {
@@ -464,6 +475,7 @@
 				7FF0973C20D53638001B1AAE /* FavoritosController.swift in Sources */,
 				FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */,
 				7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */,
+				FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */,
 				7FF0974220D53DC7001B1AAE /* MensajesProfeViewController.swift in Sources */,
 				88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */,
 				7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */,

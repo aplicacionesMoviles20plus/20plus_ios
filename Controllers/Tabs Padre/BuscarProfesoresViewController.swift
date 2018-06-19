@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class BuscarProfesoresViewController: UITableViewController {
 
+    var profesors = [profesor]()
+    var selectedRow: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,28 +31,70 @@ class BuscarProfesoresViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+       
+        self.profesors.removeAll()
+        Alamofire.request("http://192.168.1.2:9990/api/profesors").responseJSON { response in
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+                //Read json
+                let sJson = JSON(json)
+                
+                for (_,subJson):(String, JSON) in sJson {
+                    // Do something you want
+                    let objItem = profesor()
+                    objItem.nombre = subJson["nombre"].stringValue
+                    objItem.apellido = subJson["apellido"].stringValue
+                    objItem.calificacion = subJson["calificacion"].intValue
+                    objItem.numero = subJson["celular"].intValue
+                    objItem.ProfesorDescription = subJson["descripcion"].stringValue
+                    objItem.experiencia = subJson["experiencia"].stringValue
+                    self.profesors.append(objItem)
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.profesors.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "home cell", for: indexPath)
 
+        cell.textLabel?.text = profesors[indexPath.row].nombre + " " + String(profesors[indexPath.row].calificacion)
+        
+        selectedRow = indexPath.row
         // Configure the cell...
 
         return cell
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if( segue.identifier == "detailProf" ){
+            if let controller = segue.destination as? ProfesorInfoViewController {
+                controller.profesor = profesors[self.selectedRow]
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print(myItems[indexPath.row].name)
+        self.selectedRow = indexPath.row
+        self.performSegue(withIdentifier: "detailProf", sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
