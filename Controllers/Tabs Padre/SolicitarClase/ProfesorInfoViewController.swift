@@ -12,15 +12,39 @@ import SwiftyJSON
 
 class ProfesorInfoViewController: UIViewController {
 
+    
+    //Cursos
+    var categoriesCursosProfe = [cursoItem]()
+    
     var profesor: profesor? = nil
     var dummyCalificacion : Int = 0
     var dummyNumero : Int = 0
+    
+    @IBOutlet weak var tableCursos: UITableView!
+    
     //OutLets
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblExperiencia: UILabel!
     @IBOutlet weak var lblNumeorTlefono: UILabel!
     @IBOutlet weak var lblNumero: UILabel!
+    
+    
+    //funcitons for table
+    func numberOfComponents(in pickerView: UITableView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UITableView, numberOfRowsInComponent component: Int) -> Int {
+        return categoriesCursosProfe.count
+    }
+    
+    func pickerView(_ pickerView: UITableView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoriesCursosProfe[row].contenido
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
