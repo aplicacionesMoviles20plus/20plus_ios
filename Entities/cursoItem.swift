@@ -10,6 +10,7 @@ import UIKit
 
 class cursoItem: NSObject {
 
+    var idcursogrado : Int = 0
     var nombre : String = ""
     var contenido : String = ""
     var grado : String = ""

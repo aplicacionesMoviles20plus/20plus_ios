@@ -10,6 +10,7 @@ import UIKit
 
 class zona: NSObject {
 
+    var idzona : Int = 0
     var nombre : String = ""
     
 }

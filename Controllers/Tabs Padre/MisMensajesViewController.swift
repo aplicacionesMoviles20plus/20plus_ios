@@ -1,5 +1,5 @@
 //
-//  MensajesProfeViewController.swift
+//  MensajesViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MensajesProfeViewController: UITableViewController {
+class MisMensajesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

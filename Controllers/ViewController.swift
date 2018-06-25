@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
-
+import Alamofire
 class ViewController: UIViewController {
 
     @IBOutlet weak var txtCorreoElcrotnico: UITextField!
