@@ -29,6 +29,8 @@
 		A43612521C817ADEC92FB9E3 /* Pods_20plusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4091CBB9327A0D25E727B332 /* Pods_20plusUITests.framework */; };
 		FD33FFB520C625E9004C82A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */; };
 		FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */; };
+		FD6F7C7E20DEE26E003F11B9 /* cursoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F7C7D20DEE26E003F11B9 /* cursoItem.swift */; };
+		FD6F7C8020DEE37E003F11B9 /* zona.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F7C7F20DEE37E003F11B9 /* zona.swift */; };
 		FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9220D4A3C2002AB1D1 /* padre.swift */; };
 		FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */; };
 		FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */; };
@@ -86,6 +88,8 @@
 		CA74E7719DA517BDA9A9C994 /* Pods-20plusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20plusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-20plusTests/Pods-20plusTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesorInfoViewController.swift; sourceTree = "<group>"; };
+		FD6F7C7D20DEE26E003F11B9 /* cursoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoItem.swift; sourceTree = "<group>"; };
+		FD6F7C7F20DEE37E003F11B9 /* zona.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zona.swift; sourceTree = "<group>"; };
 		FDCFDF9220D4A3C2002AB1D1 /* padre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = padre.swift; sourceTree = "<group>"; };
 		FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarUsuarioViewController.swift; sourceTree = "<group>"; };
 		FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscarProfesoresViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 			children = (
 				FDCFDF9220D4A3C2002AB1D1 /* padre.swift */,
 				7FF0974F20D5474E001B1AAE /* profesor.swift */,
+				FD6F7C7D20DEE26E003F11B9 /* cursoItem.swift */,
+				FD6F7C7F20DEE37E003F11B9 /* zona.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -470,7 +476,9 @@
 				7FF0975020D5474E001B1AAE /* profesor.swift in Sources */,
 				FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */,
 				7FF0974020D536F6001B1AAE /* MisClasesViewController.swift in Sources */,
+				FD6F7C8020DEE37E003F11B9 /* zona.swift in Sources */,
 				7FF0973E20D53694001B1AAE /* MensajesViewController.swift in Sources */,
+				FD6F7C7E20DEE26E003F11B9 /* cursoItem.swift in Sources */,
 				7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */,
 				7FF0973C20D53638001B1AAE /* FavoritosController.swift in Sources */,
 				FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */,

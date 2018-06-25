@@ -42,8 +42,16 @@ class RegistrarUsuarioViewController: UIViewController {
         Alamofire.request("http://192.168.1.2:9990/api/padres", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            print("Result Value: \(String(describing: response.result.value))")               // response serialization result
+            print("Result: \(response.result)")                         // response serialization result serialization result
+            
+            
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(self.txtNombreUsuario.text, forKey: "UserNombre")
+            userDefaults.set(self.txtApellidoUsuario.text, forKey: "UserApellido")
+            userDefaults.set(self.txtContraseniaUsuario.text, forKey: "UserContrasena")
+            userDefaults.set(self.txtCorreo.text, forKey: "UserEmail")
+            
             
             switch(response.result){
             case .failure(_):
