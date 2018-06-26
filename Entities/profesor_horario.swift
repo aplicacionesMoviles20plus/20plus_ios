@@ -12,5 +12,5 @@ class profesor_horario: NSObject {
     var id_profesor : Int = 0
     var id_horario : Int = 0
     var estado : String = ""
-    var fecha : Date = 0/0/0
+    var fecha : Date = Date()
 }

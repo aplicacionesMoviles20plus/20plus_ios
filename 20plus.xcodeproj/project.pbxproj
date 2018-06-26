@@ -11,7 +11,6 @@
 		5EA02E1B5EE3C72B473F66E4 /* Pods_20plusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CFD8A01DF00E88EB219272 /* Pods_20plusTests.framework */; };
 		7FF0973C20D53638001B1AAE /* FavoritosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0973B20D53638001B1AAE /* FavoritosController.swift */; };
 		7FF0973E20D53694001B1AAE /* MisMensajesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0973D20D53694001B1AAE /* MisMensajesViewController.swift */; };
-		7FF0974020D536F6001B1AAE /* MisClasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0973F20D536F6001B1AAE /* MisClasesViewController.swift */; };
 		7FF0974220D53DC7001B1AAE /* MisMensajesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974120D53DC7001B1AAE /* MisMensajesProfeViewController.swift */; };
 		7FF0974620D53E04001B1AAE /* MisClasesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */; };
 		7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */; };
@@ -523,7 +522,6 @@
 				FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */,
 				84ED985C20E0803F00BF6BC2 /* hijo.swift in Sources */,
 				84ED986C20E0927C00BF6BC2 /* resumenclase.swift in Sources */,
-				7FF0974020D536F6001B1AAE /* MisClasesViewController.swift in Sources */,
 				84ED986220E08AE100BF6BC2 /* metodopago.swift in Sources */,
 				FD6F7C8020DEE37E003F11B9 /* zona.swift in Sources */,
 				84ED986820E08FE700BF6BC2 /* profesor_zona.swift in Sources */,

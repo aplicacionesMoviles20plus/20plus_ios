@@ -39,7 +39,7 @@ class RegistrarUsuarioViewController: UIViewController {
                                        "password" : self.txtContraseniaUsuario.text!,
                                        "email" : self.txtCorreo.text!]
     
-        Alamofire.request("http://192.168.1.2:9990/api/padres", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("http://192.168.1.4:9990/api/padres", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result serialization result

@@ -9,8 +9,8 @@
 import UIKit
 
 class suscripcion: NSObject {
-    var fechainicio : Date = 0/0/0
-    var fechafin : Date = 0/0/0
+    var fechainicio : Date = Date()
+    var fechafin : Date = Date()
     var id_profesor : Int = 0
     
 }

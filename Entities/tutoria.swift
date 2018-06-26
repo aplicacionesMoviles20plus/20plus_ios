@@ -10,7 +10,7 @@ import UIKit
 
 class tutoria: NSObject {
     var hora : String = ""
-    var fecha : Date = 0/0/0
+    var fecha : Date = Date()
     var precio : Double = 0.0
     var comentario : String = ""
     var calificacion : Int = 0

@@ -29,7 +29,7 @@ class RegistrarMetodoPagoViewController: UIViewController {
     
     @IBAction func botonCrear(_ sender: Any) {
         let parameters : Parameters = ["nombre" : "Nuevo", "numerotarjeta" : txtTarjeta.text!, "fecha" : dpFecha.date, "cvv" : txtCodigo.text!]
-        Alamofire.request("",method: .post, parameters : parameters)
+        Alamofire.request("http://192.168.1.4:9990/api/metodopagoes",method: .post, parameters : parameters)
     }
     
     

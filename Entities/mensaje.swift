@@ -11,7 +11,7 @@ import UIKit
 class mensaje: NSObject {
     var idmensaje : Int = 0
     var hora : String = ""
-    var fecha : Date = 0/0/0
+    var fecha : Date = Date()
     var contenido : String = ""
     var id_padre : Int = 0
     var id_profe : Int = 0

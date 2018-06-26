@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 class MisMensajesViewController: UITableViewController {
 
+    var arreglo = [mensaje]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,27 +27,44 @@ class MisMensajesViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        Alamofire.request("http://192.168.1.4:9990/api/mensajes").responseJSON{
+            response in
+            if let json = response.result.value{
+                let sJSON = JSON(json)
+                for(_,subJson):(String, JSON) in sJSON{
+                    let objEntidad = mensaje()
+                    objEntidad.contenido=subJson["contenido"].stringValue
+                    objEntidad.hora=subJson["hora"].stringValue
+                    //objEntidad.fecha=subJson["fecha"].stringValue
+                    objEntidad.idmensaje = subJson["idmensaje"].intValue
+                    self.arreglo.append(objEntidad)
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return arreglo.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-
+        cell.textLabel?.text=arreglo[indexPath.row].contenido
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

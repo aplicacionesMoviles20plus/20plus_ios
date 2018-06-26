@@ -10,7 +10,7 @@ import UIKit
 
 class resumenclase: NSObject {
     var descripcion : String = ""
-    var fecha : Date = 0/0/0
+    var fecha : Date = Date()
     var id_tutoria : Int = 0
     
 }

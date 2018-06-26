@@ -13,7 +13,7 @@ import SwiftyJSON
 class MisMensajesProfeViewController: UITableViewController {
 
     var arreglo = [mensaje]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +30,7 @@ class MisMensajesProfeViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("").responseJSON{
+        Alamofire.request("http://192.168.1.4:9990/api/mensajes").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
@@ -38,7 +38,7 @@ class MisMensajesProfeViewController: UITableViewController {
                     let objEntidad = mensaje()
                     objEntidad.contenido=subJson["contenido"].stringValue
                     objEntidad.hora=subJson["hora"].stringValue
-                    objEntidad.fecha=subJson["fecha"].date
+                    //objEntidad.fecha=subJson["fecha"].date
                     objEntidad.idmensaje = subJson["idmensaje"].intValue
                     self.arreglo.append(objEntidad)
                 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class servicio: NSObject {
-    var fecha : Date = 0/0/0
+    var fecha : Date = Date()
     var tipodepago : String = ""
     
 }

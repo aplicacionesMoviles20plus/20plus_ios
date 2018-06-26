@@ -11,7 +11,7 @@ import UIKit
 class metodopago: NSObject {
     var nombre : String = ""
     var numerotarjeta : String = ""
-    var fecha : Date = 0/0/0
+    var fecha : Date = Date()
     var cvv : String = ""
     
 }

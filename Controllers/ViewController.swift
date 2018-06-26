@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         
         
         
-        Alamofire.request("http://192.168.1.2:9990/api/padres?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
+        Alamofire.request("http://192.168.1.4:9990/api/padres?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")                         // response serialization result

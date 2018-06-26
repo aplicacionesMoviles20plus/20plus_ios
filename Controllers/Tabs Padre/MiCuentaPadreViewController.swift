@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 class MiCuentaPadreViewController: UIViewController {
 
     override func viewDidLoad() {

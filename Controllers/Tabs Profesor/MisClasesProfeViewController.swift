@@ -7,9 +7,13 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 class MisClasesProfeViewController: UITableViewController {
 
+    var arreglo = [cursoItem]() 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +29,23 @@ class MisClasesProfeViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        Alamofire.request("http://192.168.1.4:9990/api/cursogradoes").responseJSON{
+            response in
+            if let json = response.result.value{
+                let sJSON = JSON(json)
+                for(_,subJson):(String, JSON) in sJSON{
+                    let objEntidad = cursoItem()
+                    objEntidad.contenido=subJson["contenido"].stringValue
+                    objEntidad.grado=subJson["grado"].stringValue
+                    objEntidad.nombre=subJson["nombre"].stringValue
+                    objEntidad.idcursogrado = subJson["idcursogrado"].intValue
+                    self.arreglo.append(objEntidad)
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,23 +53,23 @@ class MisClasesProfeViewController: UITableViewController {
         
         
         //commit random
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return arreglo.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-
+        cell.textLabel?.text=arreglo[indexPath.row].nombre
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

@@ -39,15 +39,17 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
+        var retornar : String = ""
         if pickerView == pvCursos{
-            return cursoArray[row].nombre
+            return cursoArray[row].nombre + cursoArray[row].grado + cursoArray[row].contenido
         }
         else if pickerView == pvHorario{
             return horarioArray[row].horarioinicio
         }
         else if pickerView == pvDistrito{
-            return  distritoArray[row].nombre
+            return distritoArray[row].nombre
         }
+        return retornar
     }
     
     override func viewDidLoad() {
@@ -68,8 +70,8 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
     
     
     override func viewDidAppear(_ animated: Bool) {
- 
-        Alamofire.request("").responseJSON{
+        
+        Alamofire.request("http://192.168.1.4:9990/api/cursogradoes").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
@@ -82,7 +84,7 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
                 self.pvCursos.reloadAllComponents()
             }
         }
-        Alamofire.request("").responseJSON{
+        Alamofire.request("http://192.168.1.4:9990/api/horarios").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
@@ -95,7 +97,7 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
                 self.pvHorario.reloadAllComponents()
             }
         }
-        Alamofire.request("").responseJSON{
+        Alamofire.request("http://192.168.1.4:9990/api/zonas").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
