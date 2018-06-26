@@ -9,6 +9,7 @@
 import UIKit
 
 class profesor_zona: NSObject {
+    var id : Int = 0
     var id_profe : Int = 0
     var id_zona : Int = 0
 

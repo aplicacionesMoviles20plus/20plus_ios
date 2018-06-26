@@ -47,7 +47,7 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
             return horarioArray[row].horarioinicio
         }
         else if pickerView == pvDistrito{
-            return distritoArray[row].nombre
+            return distritoArray[row].zona1
         }
         return retornar
     }
@@ -103,7 +103,7 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
                 let sJSON = JSON(json)
                 for(index,subJson):(String, JSON) in sJSON{
                     let objZona = zona()
-                    objZona.nombre = subJson["zona"].stringValue
+                    objZona.zona1 = subJson["zona1"].stringValue
                     objZona.idzona = subJson["idzona"].intValue
                     self.distritoArray.append(objZona)
                 }

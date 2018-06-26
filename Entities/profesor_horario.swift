@@ -9,6 +9,7 @@
 import UIKit
 
 class profesor_horario: NSObject {
+    var id : Int = 0
     var id_profesor : Int = 0
     var id_horario : Int = 0
     var estado : String = ""

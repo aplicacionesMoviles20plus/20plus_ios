@@ -37,7 +37,7 @@ class FavoritosController: UITableViewController {
                     objEntidad.apellido=subJson["apellido"].stringValue
                     objEntidad.email=subJson["email"].stringValue
                     objEntidad.nombre=subJson["nombre"].stringValue
-                    objEntidad.DNI = subJson["dni"].intValue
+                    objEntidad.dni = subJson["dni"].intValue
                     self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()

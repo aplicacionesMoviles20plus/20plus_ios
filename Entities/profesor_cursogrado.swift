@@ -9,6 +9,7 @@
 import UIKit
 
 class profesor_cursogrado: NSObject {
+    var id : Int = 0
     var id_profesor : Int = 0
     var id_cursogrado : Int = 0
 }

@@ -46,8 +46,8 @@ class BuscarProfesoresViewController: UITableViewController {
                     objItem.nombre = subJson["nombre"].stringValue
                     objItem.apellido = subJson["apellido"].stringValue
                     objItem.calificacion = subJson["calificacion"].intValue
-                    objItem.numero = subJson["celular"].intValue
-                    objItem.ProfesorDescription = subJson["descripcion"].stringValue
+                    objItem.celular = subJson["celular"].intValue
+                    objItem.descripcion = subJson["descripcion"].stringValue
                     objItem.experiencia = subJson["experiencia"].stringValue
                     self.profesors.append(objItem)
                 }

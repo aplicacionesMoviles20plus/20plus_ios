@@ -56,10 +56,10 @@ class ProfesorInfoViewController: UIViewController {
         print(profesor?.nombre)
         
         self.dummyCalificacion = (profesor?.calificacion)!
-        self.dummyNumero = (profesor?.numero)!
+        self.dummyNumero = (profesor?.celular)!
         
         self.lblName.text=(profesor?.nombre)! + " " + (profesor?.apellido)!
-        self.lblDescription.text=profesor?.ProfesorDescription
+        self.lblDescription.text=profesor?.descripcion
         self.lblNumero.text = String(self.dummyCalificacion)
         self.lblNumeorTlefono.text = String(self.dummyNumero)
         self.lblExperiencia.text = profesor?.experiencia

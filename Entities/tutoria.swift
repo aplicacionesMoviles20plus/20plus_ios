@@ -9,6 +9,7 @@
 import UIKit
 
 class tutoria: NSObject {
+    var idtutoria : Int = 0
     var hora : String = ""
     var fecha : Date = Date()
     var precio : Double = 0.0

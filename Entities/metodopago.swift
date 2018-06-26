@@ -9,6 +9,7 @@
 import UIKit
 
 class metodopago: NSObject {
+    var id : Int = 0
     var nombre : String = ""
     var numerotarjeta : String = ""
     var fecha : Date = Date()

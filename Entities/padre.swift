@@ -10,6 +10,7 @@ import UIKit
 
 class padre: NSObject {
 
+    var idpadre : Int = 0
     var nombre : String = ""
     var apellido : String = ""
     var password : String = ""

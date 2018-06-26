@@ -10,9 +10,9 @@ import UIKit
 
 class hijo: NSObject {
     
+    var idhijo : Int = 0
     var id_tutoria : Int = 0
     var id_padre : Int = 0
     var nombre : String = ""
     var descripcion : String = ""
-    var grado : String = ""
 }
