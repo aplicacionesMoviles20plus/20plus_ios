@@ -16,7 +16,6 @@
 		7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */; };
 		7FF0974A20D53E4E001B1AAE /* MiCuentaPadreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */; };
 		7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */; };
-		7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */; };
 		7FF0975020D5474E001B1AAE /* profesor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974F20D5474E001B1AAE /* profesor.swift */; };
 		84CF956C20E609FC00CFE457 /* RegistrarTipoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF956B20E609FC00CFE457 /* RegistrarTipoViewController.swift */; };
 		84ED985C20E0803F00BF6BC2 /* hijo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED985B20E0803F00BF6BC2 /* hijo.swift */; };
@@ -48,6 +47,8 @@
 		FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9220D4A3C2002AB1D1 /* padre.swift */; };
 		FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */; };
 		FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */; };
+		FDFC2CF320E69855004B7209 /* VerAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */; };
+		FDFC2CF420E69855004B7209 /* CrearAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +81,6 @@
 		7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisAvancesProfeViewController.swift; sourceTree = "<group>"; };
 		7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCuentaPadreViewController.swift; sourceTree = "<group>"; };
 		7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfeViewController.swift; sourceTree = "<group>"; };
-		7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCuentaProfeViewController.swift; sourceTree = "<group>"; };
 		7FF0974F20D5474E001B1AAE /* profesor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profesor.swift; sourceTree = "<group>"; };
 		808D692E1AA309CA9C4F69F7 /* Pods_20plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CF956B20E609FC00CFE457 /* RegistrarTipoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarTipoViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +122,8 @@
 		FDCFDF9220D4A3C2002AB1D1 /* padre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = padre.swift; sourceTree = "<group>"; };
 		FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarUsuarioViewController.swift; sourceTree = "<group>"; };
 		FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscarProfesoresViewController.swift; sourceTree = "<group>"; };
+		FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerAvanceViewController.swift; sourceTree = "<group>"; };
+		FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrearAvanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,11 +180,12 @@
 		7FF0973620D535B6001B1AAE /* Tabs Profesor */ = {
 			isa = PBXGroup;
 			children = (
+				FDFC2CF820E69898004B7209 /* mi cuenta */,
+				FDFC2CEF20E69840004B7209 /* cosas avance */,
 				7FF0974120D53DC7001B1AAE /* MisMensajesProfeViewController.swift */,
 				7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */,
 				7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */,
 				7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */,
-				7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */,
 				84ED987320E0A71A00BF6BC2 /* RegistrarProfesorViewController.swift */,
 				84ED987520E0BCC500BF6BC2 /* RegistrarMetodoPagoViewController.swift */,
 			);
@@ -298,6 +301,22 @@
 				84CF956B20E609FC00CFE457 /* RegistrarTipoViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FDFC2CEF20E69840004B7209 /* cosas avance */ = {
+			isa = PBXGroup;
+			children = (
+				FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */,
+				FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */,
+			);
+			path = "cosas avance";
+			sourceTree = "<group>";
+		};
+		FDFC2CF820E69898004B7209 /* mi cuenta */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "mi cuenta";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,6 +554,7 @@
 				84ED987220E093D100BF6BC2 /* tutoria.swift in Sources */,
 				FD6F7C7E20DEE26E003F11B9 /* cursoItem.swift in Sources */,
 				7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */,
+				FDFC2CF420E69855004B7209 /* CrearAvanceViewController.swift in Sources */,
 				84ED985E20E0823100BF6BC2 /* horario.swift in Sources */,
 				7FF0973C20D53638001B1AAE /* FavoritosController.swift in Sources */,
 				84ED986E20E092F200BF6BC2 /* servicio.swift in Sources */,
@@ -543,8 +563,8 @@
 				FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */,
 				7FF0974220D53DC7001B1AAE /* MisMensajesProfeViewController.swift in Sources */,
 				88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */,
+				FDFC2CF320E69855004B7209 /* VerAvanceViewController.swift in Sources */,
 				84CF956C20E609FC00CFE457 /* RegistrarTipoViewController.swift in Sources */,
-				7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
