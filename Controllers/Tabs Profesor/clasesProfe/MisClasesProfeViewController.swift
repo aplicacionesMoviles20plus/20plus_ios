@@ -1,5 +1,5 @@
 //
-//  MisAvancesProfeViewController.swift
+//  MisClasesProfeViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -9,9 +9,11 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisAvancesProfeViewController: UITableViewController {
+class MisClasesProfeViewController: UITableViewController {
 
-    var arreglo = [tutoria]()
+    var arreglo = [cursoItem]() 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,18 +28,20 @@ class MisAvancesProfeViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/tutorias").responseJSON{
+        Alamofire.request("http://192.168.1.4:9990/api/cursogradoes").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = tutoria()
-                    objEntidad.comentario=subJson["comentario"].stringValue
-                    objEntidad.curso=subJson["curso"].stringValue
-                    objEntidad.estado=subJson["estado"].stringValue
-                    objEntidad.calificacion = subJson["calificacion"].intValue
+                    let objEntidad = cursoItem()
+                    objEntidad.contenido=subJson["contenido"].stringValue
+                    objEntidad.grado=subJson["grado"].stringValue
+                    objEntidad.nombre=subJson["nombre"].stringValue
+                    objEntidad.idcursogrado = subJson["idcursogrado"].intValue
                     self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()
@@ -48,6 +52,9 @@ class MisAvancesProfeViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
+        
+        //commit random
         return 1
     }
 
@@ -61,10 +68,10 @@ class MisAvancesProfeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].curso
+        cell.textLabel?.text=arreglo[indexPath.row].nombre
         return cell
     }
-    
+ 
 
     /*
     // Override to support conditional editing of the table view.

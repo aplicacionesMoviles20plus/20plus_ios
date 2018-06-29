@@ -1,5 +1,5 @@
 //
-//  MisClasesProfeViewController.swift
+//  MisAvancesProfeViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -9,11 +9,15 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisClasesProfeViewController: UITableViewController {
 
-    var arreglo = [cursoItem]() 
-    
-    
+class MisAvancesProfeViewController: UITableViewController {
+
+    var tutorias =  [tutoria]()
+    var values = [String]()
+    var numberOfParents: Int = 0
+    var estado:String = ""
+    var nombre:String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,35 +34,48 @@ class MisClasesProfeViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/cursogradoes").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = cursoItem()
-                    objEntidad.contenido=subJson["contenido"].stringValue
-                    objEntidad.grado=subJson["grado"].stringValue
-                    objEntidad.nombre=subJson["nombre"].stringValue
-                    objEntidad.idcursogrado = subJson["idcursogrado"].intValue
-                    self.arreglo.append(objEntidad)
+                    let objEntidad = tutoria()
+                    objEntidad.id_padre=subJson["id_padre"].intValue
+                    objEntidad.estado=subJson["estado"].stringValue
+                    
+                    self.estado = objEntidad.estado
+                    
+                    //Gte padre by Id
+                    if(self.estado == "vencida"  ){
+                        
+                        
+                        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/padres").responseJSON{
+                            response in
+                            if let json = response.result.value{
+                                let sJSON = JSON(json)
+                                
+                                self.nombre=subJson["nombre"].stringValue
+                                self.values.append(self.nombre)
+                                self.numberOfParents = self.numberOfParents + 1
+                            }
+                    }
                 }
                 self.tableView.reloadData()
             }
         }
+        }
+        
     }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        
-        
-        //commit random
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arreglo.count
+        return self.values.count
     }
 
     
@@ -66,10 +83,10 @@ class MisClasesProfeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].nombre
+        cell.textLabel?.text=values[indexPath.row]
         return cell
     }
- 
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -117,3 +134,4 @@ class MisClasesProfeViewController: UITableViewController {
     */
 
 }
+
