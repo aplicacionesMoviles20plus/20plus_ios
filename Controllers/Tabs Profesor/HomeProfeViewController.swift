@@ -1,5 +1,5 @@
 //
-//  MiCuentaPadreViewController.swift
+//  HomeProfeViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-class MiCuentaPadreViewController: UIViewController {
+
+class HomeProfeViewController: UIViewController {
     var id = 0
     
     override func viewDidLoad() {

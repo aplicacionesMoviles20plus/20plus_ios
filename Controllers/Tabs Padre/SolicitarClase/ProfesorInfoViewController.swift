@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class ProfesorInfoViewController: UIViewController {
 
-    
+    var id = 0
     //Cursos
     var categoriesCursosProfe = [cursoItem]()
     

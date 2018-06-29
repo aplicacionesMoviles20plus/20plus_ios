@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 class MisClasesViewController: UITableViewController {
-
+    var id = 0
     var arreglo = [tutoria]()
     override func viewDidLoad() {
         super.viewDidLoad()

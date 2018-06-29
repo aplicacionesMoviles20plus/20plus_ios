@@ -1,5 +1,5 @@
 //
-//  MensajesViewController.swift
+//  MisAvancesProfeViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -9,9 +9,10 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisMensajesViewController: UITableViewController {
-    var id = 0
-    var arreglo = [mensaje]()
+class MisAvancesProfeViewController: UITableViewController {
+
+    var id = ""
+    var arreglo = [suscripcion]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,16 +29,18 @@ class MisMensajesViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/mensajes").responseJSON{
+         let userDefaults = UserDefaults.standard
+        id = userDefaults.string(forKey: "UserId")!
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/suscripcions?idprofesor="+id).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = mensaje()
-                    objEntidad.contenido=subJson["contenido"].stringValue
-                    objEntidad.hora=subJson["hora"].stringValue
-                    //objEntidad.fecha=subJson["fecha"].stringValue
-                    objEntidad.idmensaje = subJson["idmensaje"].intValue
+                    let objEntidad = suscripcion()
+                    objEntidad.fechafin=subJson["fechafin"].stringValue
+                    objEntidad.fechainicio=subJson["fechainicio"].stringValue
+                    objEntidad.id_profesor=subJson["id_profesor"].intValue
+                    objEntidad.idsuscripcion = subJson["idsuscripcion"].intValue
                     self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()
@@ -61,7 +64,8 @@ class MisMensajesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].contenido
+        cell.textLabel?.text=arreglo[indexPath.row].fechainicio+"-"+arreglo[indexPath.row].fechafin
+
         return cell
     }
     

@@ -1,5 +1,5 @@
 //
-//  MensajesViewController.swift
+//  MisClasesProfeViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -9,9 +9,12 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisMensajesViewController: UITableViewController {
+class MisClasesProfeViewController: UITableViewController {
+
     var id = 0
-    var arreglo = [mensaje]()
+    var arreglo = [cursoItem]() 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,16 +31,16 @@ class MisMensajesViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/mensajes").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/cursogradoes").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = mensaje()
+                    let objEntidad = cursoItem()
                     objEntidad.contenido=subJson["contenido"].stringValue
-                    objEntidad.hora=subJson["hora"].stringValue
-                    //objEntidad.fecha=subJson["fecha"].stringValue
-                    objEntidad.idmensaje = subJson["idmensaje"].intValue
+                    objEntidad.grado=subJson["grado"].stringValue
+                    objEntidad.nombre=subJson["nombre"].stringValue
+                    objEntidad.idcursogrado = subJson["idcursogrado"].intValue
                     self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()
@@ -48,6 +51,9 @@ class MisMensajesViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
+        
+        //commit random
         return 1
     }
 
@@ -61,10 +67,10 @@ class MisMensajesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].contenido
+        cell.textLabel?.text=arreglo[indexPath.row].nombre
         return cell
     }
-    
+ 
 
     /*
     // Override to support conditional editing of the table view.

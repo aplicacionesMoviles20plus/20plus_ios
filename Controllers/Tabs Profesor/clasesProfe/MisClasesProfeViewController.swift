@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 class MisClasesProfeViewController: UITableViewController {
 
+    var id = 0
     var arreglo = [cursoItem]() 
     
     
@@ -32,7 +33,7 @@ class MisClasesProfeViewController: UITableViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/cursogradoes").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/cursogradoes").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)

@@ -13,6 +13,7 @@ import SwiftyJSON
 
 class BuscarProfesoresViewController: UITableViewController {
 
+    var id = 0
     var profesors = [profesor]()
     var selectedRow: Int = 0
     

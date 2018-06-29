@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 class FavoritosController: UITableViewController {
-    
+    var id = 0
     var arreglo = [profesor]()
     override func viewDidLoad() {
         super.viewDidLoad()

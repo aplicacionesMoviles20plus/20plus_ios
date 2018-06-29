@@ -12,12 +12,8 @@ import SwiftyJSON
 
 class MisAvancesProfeViewController: UITableViewController {
 
-    var tutorias =  [tutoria]()
-    var values = [String]()
-    var numberOfParents: Int = 0
-    var estado:String = ""
-    var nombre:String = ""
-
+    var id = ""
+    var arreglo = [suscripcion]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,31 +30,19 @@ class MisAvancesProfeViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias").responseJSON{
+         let userDefaults = UserDefaults.standard
+        id = userDefaults.string(forKey: "UserId")!
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/suscripcions?idprofesor="+id).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = tutoria()
-                    objEntidad.id_padre=subJson["id_padre"].intValue
-                    objEntidad.estado=subJson["estado"].stringValue
-                    
-                    self.estado = objEntidad.estado
-                    
-                    //Gte padre by Id
-                    if(self.estado == "vencida"  ){
-                        
-                        
-                        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/padres").responseJSON{
-                            response in
-                            if let json = response.result.value{
-                                let sJSON = JSON(json)
-                                
-                                self.nombre=subJson["nombre"].stringValue
-                                self.values.append(self.nombre)
-                                self.numberOfParents = self.numberOfParents + 1
-                            }
-                    }
+                    let objEntidad = suscripcion()
+                    objEntidad.fechafin=subJson["fechafin"].stringValue
+                    objEntidad.fechainicio=subJson["fechainicio"].stringValue
+                    objEntidad.id_profesor=subJson["id_profesor"].intValue
+                    objEntidad.idsuscripcion = subJson["idsuscripcion"].intValue
+                    self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()
             }
@@ -83,7 +67,8 @@ class MisAvancesProfeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=values[indexPath.row]
+        cell.textLabel?.text=arreglo[indexPath.row].fechainicio+"-"+arreglo[indexPath.row].fechafin
+
         return cell
     }
     

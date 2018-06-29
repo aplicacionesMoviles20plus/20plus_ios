@@ -27,14 +27,8 @@ class ViewController: UIViewController {
     
     @IBAction func btnLoginPressed(_ sender: Any) {
         
-        
-        //valido el login
-        //performSegue(withIdentifier: "login", sender: self)
-        
-        
-        //http://vmdev1.nexolink.com:90/TruequeAppAPI/api/UsersApp?username
-        /*
-        Alamofire.request("http://vmdev1.nexolink.com:90/TruequeAppAPI/api/UsersApp?username="+txtCorreoElcrotnico.text!+"&password="+txtPass.text!).responseJSON { response in
+        let userDefaults = UserDefaults.standard
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/padres?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")                         // response serialization result
@@ -46,61 +40,38 @@ class ViewController: UIViewController {
                 if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                     print("Data: \(utf8Text)") // original server data as UTF8 string
                 }
-                
-                let sJson = JSON(response.result.value)
-                if(sJson["Id"] != JSON.null){
-                    print(sJson["Name"])
-                    
-                    self.performSegue(withIdentifier: "login", sender: nil)
-                }else{
-                    let alert = UIAlertController(title: "Fatal FAIl!!", message: "ERROR!! ERROR!! ERROR!!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                        NSLog("The \"OK\" alert occured.")
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                }
-        }*/
-        
-        
-        
-        Alamofire.request("http://192.168.1.4:9990/api/padres?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")                         // response serialization result
-                
-                if let json = response.result.value {
-                    print("JSON: \(json)") // serialized json response
-                }
-                
-                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                    print("Data: \(utf8Text)") // original server data as UTF8 string
-                    
-                }
-            
             //doble llave en el json por eos no se peude leer con el; metodo usualk
                 let sJson = JSON(response.result.value)
-                if(sJson["idpadre"].string != ""){
+                if(sJson["idpadre"] != JSON.null){
                     print(sJson["{nombre}"])
+                    userDefaults.set(sJson["idpadre"].intValue, forKey: "UserId")
+                    self.performSegue(withIdentifier: "loginPadre", sender: nil)
                     
-                    
-                    let userDefaults = UserDefaults.standard
-                    userDefaults.set(sJson["Id"].intValue, forKey: "UserId")
-                    self.performSegue(withIdentifier: "login", sender: nil)
-                    
-                    
-                }else{
-                    print("ERROR GG MEN A dormir >V")
-                    
-                    let alert = UIAlertController(title: "Fatal FAIl!!", message: "Ops!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                        NSLog("The \"OK\" alert occured.")
-                    }))
-                    self.present(alert, animated: true, completion: nil)
                 }
         }
+        
+            Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
+                let sJsonProfe = JSON(response.result.value)
+                if(sJsonProfe["idprofesor"] != JSON.null){
+                    userDefaults.set(sJsonProfe["idprofesor"].intValue, forKey: "UserId")
+                    self.performSegue(withIdentifier: "loginProfesor", sender: nil)
+                    
+                }
+                
+            }
+        /*
+         else {
+         print("ERROR GG MEN A dormir >V")
+         
+         let alert = UIAlertController(title: "Fatal FAIl!!", message: "Ops!", preferredStyle: .alert)
+         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+         NSLog("The \"OK\" alert occured.")
+         }))
+         self.present(alert, animated: true, completion: nil)
+         
+         }
+         */
     }
- 
-    
 }
 
 

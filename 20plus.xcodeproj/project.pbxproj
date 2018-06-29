@@ -18,6 +18,7 @@
 		7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */; };
 		7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */; };
 		7FF0975020D5474E001B1AAE /* profesor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF0974F20D5474E001B1AAE /* profesor.swift */; };
+		84CF956C20E609FC00CFE457 /* RegistrarTipoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF956B20E609FC00CFE457 /* RegistrarTipoViewController.swift */; };
 		84ED985C20E0803F00BF6BC2 /* hijo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED985B20E0803F00BF6BC2 /* hijo.swift */; };
 		84ED985E20E0823100BF6BC2 /* horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED985D20E0823100BF6BC2 /* horario.swift */; };
 		84ED986020E0849800BF6BC2 /* mensaje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED985F20E0849800BF6BC2 /* mensaje.swift */; };
@@ -40,8 +41,6 @@
 		88200FC220BE37AD000A5A1A /* _0plusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88200FC120BE37AD000A5A1A /* _0plusTests.swift */; };
 		88200FCD20BE37AD000A5A1A /* _0plusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88200FCC20BE37AD000A5A1A /* _0plusUITests.swift */; };
 		A43612521C817ADEC92FB9E3 /* Pods_20plusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4091CBB9327A0D25E727B332 /* Pods_20plusUITests.framework */; };
-		FD1776A320E5F558006F893E /* CrearAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1776A220E5F558006F893E /* CrearAvanceViewController.swift */; };
-		FD1776A520E5FE13006F893E /* VerAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1776A420E5FE13006F893E /* VerAvanceViewController.swift */; };
 		FD33FFB520C625E9004C82A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */; };
 		FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */; };
 		FD6F7C7E20DEE26E003F11B9 /* cursoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F7C7D20DEE26E003F11B9 /* cursoItem.swift */; };
@@ -84,6 +83,7 @@
 		7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCuentaProfeViewController.swift; sourceTree = "<group>"; };
 		7FF0974F20D5474E001B1AAE /* profesor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profesor.swift; sourceTree = "<group>"; };
 		808D692E1AA309CA9C4F69F7 /* Pods_20plus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84CF956B20E609FC00CFE457 /* RegistrarTipoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarTipoViewController.swift; sourceTree = "<group>"; };
 		84ED985B20E0803F00BF6BC2 /* hijo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hijo.swift; sourceTree = "<group>"; };
 		84ED985D20E0823100BF6BC2 /* horario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = horario.swift; sourceTree = "<group>"; };
 		84ED985F20E0849800BF6BC2 /* mensaje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mensaje.swift; sourceTree = "<group>"; };
@@ -115,8 +115,6 @@
 		BA58F6933121B9E4B923A069 /* Pods-20plus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20plus.release.xcconfig"; path = "Pods/Target Support Files/Pods-20plus/Pods-20plus.release.xcconfig"; sourceTree = "<group>"; };
 		C0CFD8A01DF00E88EB219272 /* Pods_20plusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20plusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74E7719DA517BDA9A9C994 /* Pods-20plusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20plusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-20plusTests/Pods-20plusTests.release.xcconfig"; sourceTree = "<group>"; };
-		FD1776A220E5F558006F893E /* CrearAvanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearAvanceViewController.swift; sourceTree = "<group>"; };
-		FD1776A420E5FE13006F893E /* VerAvanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerAvanceViewController.swift; sourceTree = "<group>"; };
 		FD33FFB420C625E8004C82A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesorInfoViewController.swift; sourceTree = "<group>"; };
 		FD6F7C7D20DEE26E003F11B9 /* cursoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cursoItem.swift; sourceTree = "<group>"; };
@@ -180,11 +178,11 @@
 		7FF0973620D535B6001B1AAE /* Tabs Profesor */ = {
 			isa = PBXGroup;
 			children = (
-				FD1776A920E601EB006F893E /* miCuentaProfe */,
-				FD1776A820E601DD006F893E /* clasesProfe */,
-				FD1776A720E601D1006F893E /* mensajesProfe */,
-				FD1776A620E601C5006F893E /* Home */,
-				FD1776A120E5F520006F893E /* avances */,
+				7FF0974120D53DC7001B1AAE /* MisMensajesProfeViewController.swift */,
+				7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */,
+				7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */,
+				7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */,
+				7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */,
 				84ED987320E0A71A00BF6BC2 /* RegistrarProfesorViewController.swift */,
 				84ED987520E0BCC500BF6BC2 /* RegistrarMetodoPagoViewController.swift */,
 			);
@@ -259,48 +257,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD1776A120E5F520006F893E /* avances */ = {
-			isa = PBXGroup;
-			children = (
-				7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */,
-				FD1776A220E5F558006F893E /* CrearAvanceViewController.swift */,
-				FD1776A420E5FE13006F893E /* VerAvanceViewController.swift */,
-			);
-			path = avances;
-			sourceTree = "<group>";
-		};
-		FD1776A620E601C5006F893E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				7FF0974B20D53E5D001B1AAE /* HomeProfeViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		FD1776A720E601D1006F893E /* mensajesProfe */ = {
-			isa = PBXGroup;
-			children = (
-				7FF0974120D53DC7001B1AAE /* MisMensajesProfeViewController.swift */,
-			);
-			path = mensajesProfe;
-			sourceTree = "<group>";
-		};
-		FD1776A820E601DD006F893E /* clasesProfe */ = {
-			isa = PBXGroup;
-			children = (
-				7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */,
-			);
-			path = clasesProfe;
-			sourceTree = "<group>";
-		};
-		FD1776A920E601EB006F893E /* miCuentaProfe */ = {
-			isa = PBXGroup;
-			children = (
-				7FF0974D20D53E69001B1AAE /* MiCuentaProfeViewController.swift */,
-			);
-			path = miCuentaProfe;
-			sourceTree = "<group>";
-		};
 		FD4D2F6A20D8B14B00E7851A /* SolicitarClase */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +295,7 @@
 				7FF0973520D5359B001B1AAE /* Tabs Padre */,
 				88200FAE20BE378A000A5A1A /* ViewController.swift */,
 				FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */,
+				84CF956B20E609FC00CFE457 /* RegistrarTipoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -576,7 +533,6 @@
 				84ED986620E08E9200BF6BC2 /* profesor_horario.swift in Sources */,
 				7FF0973E20D53694001B1AAE /* MisMensajesViewController.swift in Sources */,
 				84ED987220E093D100BF6BC2 /* tutoria.swift in Sources */,
-				FD1776A320E5F558006F893E /* CrearAvanceViewController.swift in Sources */,
 				FD6F7C7E20DEE26E003F11B9 /* cursoItem.swift in Sources */,
 				7FF0974C20D53E5D001B1AAE /* HomeProfeViewController.swift in Sources */,
 				84ED985E20E0823100BF6BC2 /* horario.swift in Sources */,
@@ -586,8 +542,8 @@
 				7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */,
 				FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */,
 				7FF0974220D53DC7001B1AAE /* MisMensajesProfeViewController.swift in Sources */,
-				FD1776A520E5FE13006F893E /* VerAvanceViewController.swift in Sources */,
 				88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */,
+				84CF956C20E609FC00CFE457 /* RegistrarTipoViewController.swift in Sources */,
 				7FF0974E20D53E69001B1AAE /* MiCuentaProfeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

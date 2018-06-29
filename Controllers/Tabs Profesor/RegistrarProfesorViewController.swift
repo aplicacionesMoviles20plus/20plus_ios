@@ -13,11 +13,11 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
     var cursoArray=[cursoItem]()
     var horarioArray=[horario]()
     var distritoArray=[zona]()
+    var id = 0
 
     @IBOutlet weak var pvCursos: UIPickerView!
     @IBOutlet weak var pvHorario: UIPickerView!
     @IBOutlet weak var pvDistrito: UIPickerView!
-    @IBOutlet weak var txtCelular: UITextField!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
@@ -41,10 +41,10 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
         
         var retornar : String = ""
         if pickerView == pvCursos{
-            return cursoArray[row].nombre + cursoArray[row].grado + cursoArray[row].contenido
+            return cursoArray[row].nombre+" : "+cursoArray[row].grado
         }
         else if pickerView == pvHorario{
-            return horarioArray[row].horarioinicio
+            return horarioArray[row].horarioinicio+"-"+horarioArray[row].horariofin+":"+horarioArray[row].dia
         }
         else if pickerView == pvDistrito{
             return distritoArray[row].zona1
@@ -71,12 +71,14 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
     
     override func viewDidAppear(_ animated: Bool) {
         
-        Alamofire.request("http://192.168.1.4:9990/api/cursogradoes").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/cursogrado").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
-                for(index,subJson):(String, JSON) in sJSON{
+                for(_,subJson):(String, JSON) in sJSON{
                     let objCurso = cursoItem()
+                    objCurso.contenido=subJson["contenido"].stringValue
+                    objCurso.grado=subJson["grado"].stringValue
                     objCurso.nombre = subJson["nombre"].stringValue
                     objCurso.idcursogrado = subJson["idcursogrado"].intValue
                     self.cursoArray.append(objCurso)
@@ -84,20 +86,22 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
                 self.pvCursos.reloadAllComponents()
             }
         }
-        Alamofire.request("http://192.168.1.4:9990/api/horarios").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/horarios").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
-                for(index,subJson):(String, JSON) in sJSON{
+                for(_,subJson):(String, JSON) in sJSON{
                     let objHorario = horario()
-                    objHorario.horarioinicio = subJson["horarioinicio"].stringValue
+                    objHorario.dia=subJson["dia"].stringValue
+                    objHorario.horariofin=subJson["horafin"].stringValue
+                    objHorario.horarioinicio = subJson["horainicio"].stringValue
                     objHorario.idhorario = subJson["idhorario"].intValue
                     self.horarioArray.append(objHorario)
                 }
                 self.pvHorario.reloadAllComponents()
             }
         }
-        Alamofire.request("http://192.168.1.4:9990/api/zonas").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/zonas").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
@@ -112,6 +116,44 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
         }
         
     }
+    
+    @IBAction func Registrar(_ sender: Any) {
+        var idcurso = 0
+        var idhorario = 0
+        var idzona = 0
+        
+        let userDefaults = UserDefaults.standard
+        let userId : Int = userDefaults.integer(forKey: "UserId")
+        
+        if let objCurso : cursoItem = self.cursoArray[self.pvCursos.selectedRow(inComponent: 0)]{
+            idcurso = objCurso.idcursogrado
+        }
+        
+        let parameters1 : Parameters = ["id_profesor" : userId,
+                                        "id_cursogrado" : idcurso]
+        
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_cursogrado", method: .post, parameters: parameters1)
+        
+        if let objHorario : horario = self.horarioArray[self.pvHorario.selectedRow(inComponent: 0)]{
+            idhorario = objHorario.idhorario
+        }
+        
+        let parameters2 : Parameters = ["id_profesor" : userId,
+                                       "id_horario" : idhorario,
+                                       "estado" : "Disponible"]
+        
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_horario", method: .post, parameters: parameters2)
+        
+        if let objZona : zona = self.distritoArray[self.pvDistrito.selectedRow(inComponent: 0)]{
+            idzona = objZona.idzona
+        }
+        let parameters3 : Parameters = ["id_profe" : userId,
+                                       "id_zona" : idzona]
+        
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_zona", method: .post, parameters: parameters3)
+        
+    }
+    
     /*
     // MARK: - Navigation
 

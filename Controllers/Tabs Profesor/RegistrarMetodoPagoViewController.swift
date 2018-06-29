@@ -11,6 +11,8 @@ import Alamofire
 import SwiftyJSON
 class RegistrarMetodoPagoViewController: UIViewController {
 
+    var id=0
+    
     @IBOutlet weak var txtTarjeta: UITextField!
     @IBOutlet weak var dpFecha: UIDatePicker!
     @IBOutlet weak var txtCodigo: UITextField!
