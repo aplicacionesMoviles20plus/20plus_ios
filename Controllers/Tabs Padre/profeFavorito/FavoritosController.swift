@@ -19,7 +19,8 @@ class FavoritosController: UITableViewController {
     var selectedRow: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.arregloProfesores.removeAll()
+        self.arreglo.removeAll()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -56,7 +57,7 @@ class FavoritosController: UITableViewController {
                 if let json = response.result.value{
                     let sJSON = JSON(json)
                     for(_,subJson):(String, JSON) in sJSON{
-                        
+                        print("obteniendo valores")
                         let objItem = profesor()
                         objItem.nombre=subJson["nombre"].stringValue
                         objItem.apellido = subJson["apellido"].stringValue
@@ -65,14 +66,17 @@ class FavoritosController: UITableViewController {
                         objItem.descripcion = subJson["descripcion"].stringValue
                         objItem.experiencia = subJson["experiencia"].stringValue
                         self.arregloProfesores.append(objItem)
+                        
+                        
                     }
                 }
                 
-                self.tableView.reloadData()
+                
             }
             
         }
         
+        self.tableView.reloadData()
         
     }
     // MARK: - Table view data source
@@ -89,7 +93,7 @@ class FavoritosController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celdaProfeFavortio", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mis favoritos cell", for: indexPath)
 
         // Configure the cell...
         cell.textLabel?.text = self.arregloProfesores[indexPath.row].nombre + " " + String(self.arregloProfesores[indexPath.row].calificacion)

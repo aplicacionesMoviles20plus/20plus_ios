@@ -54,6 +54,8 @@
 		FDF7543C20E755310032B751 /* tutoriaMarcadaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543B20E755310032B751 /* tutoriaMarcadaViewController.swift */; };
 		FDF7543E20E763E40032B751 /* MyProfessorFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543D20E763E40032B751 /* MyProfessorFavViewController.swift */; };
 		FDF7544020E76BEB0032B751 /* VerClaseViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543F20E76BEB0032B751 /* VerClaseViewController2.swift */; };
+		FDF7544220E7764D0032B751 /* VerMensajeDeProfesorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7544120E7764D0032B751 /* VerMensajeDeProfesorViewController.swift */; };
+		FDF7544420E77AAF0032B751 /* CrearMnesajePadreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7544320E77AAF0032B751 /* CrearMnesajePadreViewController.swift */; };
 		FDFC2CF320E69855004B7209 /* VerAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */; };
 		FDFC2CF420E69855004B7209 /* CrearAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */; };
 /* End PBXBuildFile section */
@@ -138,6 +140,8 @@
 		FDF7543B20E755310032B751 /* tutoriaMarcadaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutoriaMarcadaViewController.swift; sourceTree = "<group>"; };
 		FDF7543D20E763E40032B751 /* MyProfessorFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfessorFavViewController.swift; sourceTree = "<group>"; };
 		FDF7543F20E76BEB0032B751 /* VerClaseViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerClaseViewController2.swift; sourceTree = "<group>"; };
+		FDF7544120E7764D0032B751 /* VerMensajeDeProfesorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerMensajeDeProfesorViewController.swift; sourceTree = "<group>"; };
+		FDF7544320E77AAF0032B751 /* CrearMnesajePadreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrearMnesajePadreViewController.swift; sourceTree = "<group>"; };
 		FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerAvanceViewController.swift; sourceTree = "<group>"; };
 		FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrearAvanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -388,6 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				7FF0973D20D53694001B1AAE /* MisMensajesViewController.swift */,
+				FDF7544120E7764D0032B751 /* VerMensajeDeProfesorViewController.swift */,
+				FDF7544320E77AAF0032B751 /* CrearMnesajePadreViewController.swift */,
 			);
 			path = mensajesPadre;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 				84ED987620E0BCC500BF6BC2 /* RegistrarMetodoPagoViewController.swift in Sources */,
 				7FF0974620D53E04001B1AAE /* MisClasesProfeViewController.swift in Sources */,
 				7FF0974A20D53E4E001B1AAE /* MiCuentaPadreViewController.swift in Sources */,
+				FDF7544420E77AAF0032B751 /* CrearMnesajePadreViewController.swift in Sources */,
 				84ED986420E08B6E00BF6BC2 /* profesor_cursogrado.swift in Sources */,
 				840AA29320E6E041000674B6 /* MisSuscripcionesProfeTableViewController.swift in Sources */,
 				84ED986A20E0922F00BF6BC2 /* profesorfavorito.swift in Sources */,
@@ -629,6 +636,7 @@
 				84ED986C20E0927C00BF6BC2 /* resumenclase.swift in Sources */,
 				FDF7544020E76BEB0032B751 /* VerClaseViewController2.swift in Sources */,
 				84ED986220E08AE100BF6BC2 /* metodopago.swift in Sources */,
+				FDF7544220E7764D0032B751 /* VerMensajeDeProfesorViewController.swift in Sources */,
 				FD6F7C8020DEE37E003F11B9 /* zona.swift in Sources */,
 				84ED986820E08FE700BF6BC2 /* profesor_zona.swift in Sources */,
 				84ED986020E0849800BF6BC2 /* mensaje.swift in Sources */,

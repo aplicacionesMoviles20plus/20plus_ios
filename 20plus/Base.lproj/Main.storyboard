@@ -1211,7 +1211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mis mensajes padre cell" id="0RU-Jm-weB" customClass="celdas">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mis mensajes padre cell" id="0RU-Jm-weB" customClass="celdaListaMnesajes">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0RU-Jm-weB" id="7yZ-5P-e4k">
@@ -1219,7 +1219,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="8fq-SN-u4M" kind="show" id="SZT-VQ-M5k"/>
+                                    <segue destination="8fq-SN-u4M" kind="show" identifier="mensajesSue" id="SZT-VQ-M5k"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1237,13 +1237,13 @@
         <!--Mensajes -->
         <scene sceneID="PYv-mc-T65">
             <objects>
-                <tableViewController id="8fq-SN-u4M" sceneMemberID="viewController">
+                <tableViewController id="8fq-SN-u4M" customClass="VerMensajeDeProfesorViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="B8e-LB-elg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="74D-ss-P6E">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="74D-ss-P6E" customClass="VerMneeinfdi">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="74D-ss-P6E" id="rRb-Fl-9Z0">
@@ -1260,7 +1260,7 @@
                     <navigationItem key="navigationItem" title="Mensajes " id="UfU-Qm-XPM">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Onp-3R-tBA">
                             <connections>
-                                <segue destination="KNv-ch-6eC" kind="show" id="8Un-TA-crF"/>
+                                <segue destination="KNv-ch-6eC" kind="show" identifier="" id="8Un-TA-crF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1269,10 +1269,10 @@
             </objects>
             <point key="canvasLocation" x="5657" y="909"/>
         </scene>
-        <!--View Controller-->
+        <!--Crear Mnesaje Padre View Controller-->
         <scene sceneID="gbs-uO-2yF">
             <objects>
-                <viewController id="KNv-ch-6eC" sceneMemberID="viewController">
+                <viewController id="KNv-ch-6eC" customClass="CrearMnesajePadreViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m3V-T1-4jU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1284,8 +1284,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TNB-nM-YPD">
-                                <rect key="frame" x="49" y="181" width="97" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escribe tu mensaje" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TNB-nM-YPD">
+                                <rect key="frame" x="49" y="181" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1295,15 +1295,22 @@
                                 <rect key="frame" x="166" y="298" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enviar"/>
+                                <connections>
+                                    <action selector="btnPreesssedd:" destination="KNv-ch-6eC" eventType="touchUpInside" id="ms4-cl-bs5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R2T-m1-Exf"/>
                     </view>
+                    <connections>
+                        <outlet property="btnPressedCrearMnesaje" destination="dOR-Mm-FYc" id="sks-Gw-EGy"/>
+                        <outlet property="txtMensaje" destination="TNB-nM-YPD" id="dGW-bh-LtG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smv-Cw-6Su" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6566" y="909"/>
+            <point key="canvasLocation" x="6565.6000000000004" y="908.9955022488756"/>
         </scene>
         <!--Mi cuenta-->
         <scene sceneID="Lsv-kt-gbu">

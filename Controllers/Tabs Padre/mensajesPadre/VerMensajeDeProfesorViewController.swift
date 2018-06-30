@@ -1,21 +1,23 @@
 //
-//  MensajesViewController.swift
+//  VerMensajeDeProfesorViewController.swift
 //  20plus
 //
-//  Created by Alumnos on 16/06/18.
+//  Created by renato mercado luna on 6/30/18.
 //  Copyright © 2018 renato. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisMensajesViewController: UITableViewController {
-    var id = 0
+
+
+class VerMensajeDeProfesorViewController: UITableViewController {
+
     
+    var profesor: profesor? = nil
     
-    var arreglo = [profesor]()
+    var arreglo = [mensaje]()
     var selectedRow: Int = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,36 +29,39 @@ class MisMensajesViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    
     override func viewDidAppear(_ animated: Bool) {
+        
+        
         let userDefaults = UserDefaults.standard
         let userId : Int = userDefaults.integer(forKey: "UserId")
         
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?idfather=" + String(userId)).responseJSON{
+        
+        var dummyId : Int = 0
+        dummyId = (profesor?.idprofesor)!
+        
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/mensajes?idpadre=" + String(userId) + "&idprofe" + String(dummyId)).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objItem = profesor()
-                    objItem.idprofesor = subJson["idprofesor"].intValue
-                    objItem.nombre = subJson["nombre"].stringValue
-                    objItem.apellido = subJson["apellido"].stringValue
-                    objItem.calificacion = subJson["calificacion"].intValue
-                    objItem.celular = subJson["celular"].intValue
-                    objItem.descripcion = subJson["descripcion"].stringValue
-                    objItem.experiencia = subJson["experiencia"].stringValue
+                    let objItem = mensaje()
+                    objItem.contenido = subJson["contenido"].stringValue
+                    objItem.remitente = subJson["remitente"].stringValue
                     self.arreglo.append(objItem)
                 }
                 self.tableView.reloadData()
             }
         }
+        
+        
+        
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,35 +75,15 @@ class MisMensajesViewController: UITableViewController {
     }
 
     
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mis mensajes padre cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VerMneeinfdi", for: indexPath)
+
+        cell.textLabel?.text = arreglo[indexPath.row].remitente + " : " + String(arreglo[indexPath.row].contenido)
         
-        cell.textLabel?.text = arreglo[indexPath.row].nombre + "   " + String(arreglo[indexPath.row].calificacion)
-        
-        selectedRow = indexPath.row
         // Configure the cell...
-        
+
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if( segue.identifier == "mensajesSue" ){
-            if let controller = segue.destination as? VerMensajeDeProfesorViewController {
-                controller.profesor = arreglo[self.selectedRow]
-            }
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(myItems[indexPath.row].name)
-        self.selectedRow = indexPath.row
-        self.performSegue(withIdentifier: "mensajesSue", sender: self)
-    }
-    
     
 
     /*
