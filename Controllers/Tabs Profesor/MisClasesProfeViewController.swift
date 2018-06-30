@@ -99,7 +99,7 @@ class MisClasesProfeViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if( segue.identifier == "ver" ){
-            if let controller = segue.destination as? VerClaseViewController {
+            if let controller = segue.destination as? VerClaseViewController2 {
                 controller.clase = arreglo[self.selectedRow].idtutoria
             }
         }

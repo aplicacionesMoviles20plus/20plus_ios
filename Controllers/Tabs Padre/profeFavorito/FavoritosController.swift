@@ -49,6 +49,8 @@ class FavoritosController: UITableViewController {
         for index in self.arreglo{
             print("lookgin for porfessor")
             var id : Int = index.id_profesor
+            print(id)
+
             Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?id=" + String(id) ).responseJSON{
                 response in
                 if let json = response.result.value{
@@ -65,9 +67,10 @@ class FavoritosController: UITableViewController {
                         self.arregloProfesores.append(objItem)
                     }
                 }
+                
+                self.tableView.reloadData()
             }
             
-            self.tableView.reloadData()
         }
         
         
