@@ -31,17 +31,22 @@ class MisMensajesProfeViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        let userDefaults = UserDefaults.standard
+        let userId : Int = userDefaults.integer(forKey: "UserId")
+        
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/mensajes").responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
+                    if(subJson["id_profe"].intValue==userId){
                     let objEntidad = mensaje()
                     objEntidad.contenido=subJson["contenido"].stringValue
                     objEntidad.hora=subJson["hora"].stringValue
                     objEntidad.fecha=subJson["fecha"].stringValue
                     objEntidad.idmensaje = subJson["idmensaje"].intValue
                     self.arreglo.append(objEntidad)
+                    }
                 }
                 self.tableView.reloadData()
             }
@@ -64,7 +69,8 @@ class MisMensajesProfeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].hora+"-"+arreglo[indexPath.row].fecha+":"+arreglo[indexPath.row].contenido
+        //cell.textLabel?.text=arreglo[indexPath.row].hora+"-"+arreglo[indexPath.row].fecha+":"+arreglo[indexPath.row].contenido
+        cell.textLabel?.text=arreglo[indexPath.row].contenido
         return cell
     }
     

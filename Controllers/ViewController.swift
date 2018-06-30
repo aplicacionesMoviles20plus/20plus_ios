@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             //doble llave en el json por eos no se peude leer con el; metodo usualk
                 let sJson = JSON(response.result.value)
                 if(sJson["idpadre"] != JSON.null){
-                    print(sJson["{nombre}"])
+                    print(sJson["nombre"])
                     userDefaults.set(sJson["idpadre"].intValue, forKey: "UserId")
                     self.performSegue(withIdentifier: "loginPadre", sender: nil)
                     
@@ -53,6 +53,7 @@ class ViewController: UIViewController {
             Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?email="+txtCorreoElcrotnico.text! + "&password="+txtPass.text!).responseJSON { response in
                 let sJsonProfe = JSON(response.result.value)
                 if(sJsonProfe["idprofesor"] != JSON.null){
+                    print(sJsonProfe["nombre"])
                     userDefaults.set(sJsonProfe["idprofesor"].intValue, forKey: "UserId")
                     self.performSegue(withIdentifier: "loginProfesor", sender: nil)
                     

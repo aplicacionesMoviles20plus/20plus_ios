@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QTi-nR-chX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QTi-nR-chX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1421,6 +1421,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="MBd-jU-uns" kind="show" identifier="ver" id="Xz8-1Y-h6h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1466,16 +1469,55 @@
             </objects>
             <point key="canvasLocation" x="2198" y="3582"/>
         </scene>
-        <!--View Controller-->
+        <!--Clase-->
         <scene sceneID="QGb-Jh-OTg">
             <objects>
-                <viewController id="MBd-jU-uns" sceneMemberID="viewController">
+                <viewController title="Clase" id="MBd-jU-uns" customClass="VerClaseViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jao-RV-dww">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Curso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL3-Kc-7XK">
+                                <rect key="frame" x="34" y="115" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4u-hL-KwE">
+                                <rect key="frame" x="166" y="115" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-kt-zxm">
+                                <rect key="frame" x="38" y="179" width="53" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-rx-t8G">
+                                <rect key="frame" x="0.0" y="239" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEr-oT-HeL">
+                                <rect key="frame" x="153" y="455" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Actualizar"/>
+                                <connections>
+                                    <action selector="Actualizar:" destination="MBd-jU-uns" eventType="touchUpInside" id="4XY-Ul-WOH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MyK-gO-Xeq"/>
                     </view>
+                    <connections>
+                        <outlet property="pvClase" destination="RVg-rx-t8G" id="IBJ-kl-jo7"/>
+                        <outlet property="txtCurso" destination="t4u-hL-KwE" id="bbJ-2w-xRd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2y-RH-tT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1606,47 +1648,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descripcion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lo-N1-IQr">
-                                <rect key="frame" x="16" y="166" width="290" height="21"/>
+                                <rect key="frame" x="16" y="344" width="290" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqW-P4-0e8">
-                                <rect key="frame" x="16" y="96" width="47" height="21"/>
+                                <rect key="frame" x="16" y="95" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="646-jY-tci">
-                                <rect key="frame" x="214" y="96" width="42" height="21"/>
+                                <rect key="frame" x="191" y="94" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="describe que se realiza en la sesion con el alumno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzN-te-Kkb">
-                                <rect key="frame" x="16" y="223" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4Z-cA-SI7">
-                                <rect key="frame" x="142" y="301" width="91" height="30"/>
+                                <rect key="frame" x="142" y="437" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Crear avance"/>
                                 <connections>
                                     <action selector="onBtnCrearAvancePressed:" destination="Wfn-9l-b5f" eventType="touchUpInside" id="dng-3c-RQh"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="describe que se realiza en la sesion con el alumno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzN-te-Kkb">
+                                <rect key="frame" x="16" y="373" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E6b-dk-IG7">
+                                <rect key="frame" x="0.0" y="162" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpS-5m-fVN">
+                                <rect key="frame" x="16" y="133" width="53" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="u41-iS-JMh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Avance" id="Zme-m4-yFz"/>
                     <connections>
+                        <outlet property="dpTutoria" destination="E6b-dk-IG7" id="qIu-rc-q2b"/>
                         <outlet property="lblFecha" destination="646-jY-tci" id="oQm-pH-Mtr"/>
                         <outlet property="txtDescripcion" destination="vzN-te-Kkb" id="XLB-mu-uPH"/>
                     </connections>
@@ -1672,7 +1726,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lAb-tJ-4rP" kind="show" id="YpM-x9-Ifg"/>
+                                    <segue destination="lAb-tJ-4rP" kind="show" identifier="ver" id="YpM-x9-Ifg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1696,7 +1750,7 @@
         <!--Mi cuenta-->
         <scene sceneID="YoK-Lq-Awg">
             <objects>
-                <viewController id="jpi-Sq-khh" customClass="MiCuentaProfeViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jpi-Sq-khh" customClass="MiCuentaProfesorViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5fb-KA-hOO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1710,9 +1764,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRG-jd-I79">
-                                <rect key="frame" x="164" y="526" width="46" height="30"/>
+                                <rect key="frame" x="153" y="526" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Actualizar"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1727,7 +1781,7 @@
         <!--Suscripciones-->
         <scene sceneID="6Rn-fr-43n">
             <objects>
-                <tableViewController id="H7i-n2-4zr" customClass="MisSuscripcionesViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="H7i-n2-4zr" customClass="MisSuscripcionesProfeTableViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Ic-K2-MxQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1762,7 +1816,7 @@
         <!--Agregar suscripcion-->
         <scene sceneID="E4q-PI-Zu4">
             <objects>
-                <viewController id="AXf-hT-sLO" customClass="CrearSsuscripcionViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AXf-hT-sLO" customClass="CrearSuscripcionViewController" customModule="_0plus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RlQ-bn-vn7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1786,6 +1840,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Agregar suscripcion"/>
                                 <connections>
+                                    <action selector="Agregar:" destination="AXf-hT-sLO" eventType="touchUpInside" id="4H3-KA-EP7"/>
                                     <action selector="btnPressedAddSsuscripcion:" destination="AXf-hT-sLO" eventType="touchUpInside" id="rrM-wd-bLV"/>
                                 </connections>
                             </button>
@@ -1803,6 +1858,7 @@
                     <navigationItem key="navigationItem" title="Agregar suscripcion" id="niJ-MZ-Aom"/>
                     <connections>
                         <outlet property="beginDate" destination="w7Y-xg-3vl" id="ZGa-FO-2XD"/>
+                        <outlet property="dpInicio" destination="w7Y-xg-3vl" id="KvI-DX-thD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P65-ku-qJc" userLabel="First Responder" sceneMemberID="firstResponder"/>

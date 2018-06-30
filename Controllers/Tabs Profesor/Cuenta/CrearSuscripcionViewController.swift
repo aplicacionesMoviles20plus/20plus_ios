@@ -1,61 +1,39 @@
 //
-//  CrearAvanceViewController.swift
+//  CrearSuscripcionViewController.swift
 //  20plus
 //
-//  Created by renato mercado luna on 6/28/18.
+//  Created by Cristian Trigo on 6/29/18.
 //  Copyright © 2018 renato. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
+class CrearSuscripcionViewController: UIViewController{
 
-
-class CrearAvanceViewController: UIViewController {
-
+    @IBOutlet weak var dpInicio: UIDatePicker!
     
-    @IBOutlet weak var txtDescripcion: UITextField!
-    @IBOutlet weak var lblFecha: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
-
-    override func viewDidAppear(_ animated: Bool) {
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let myString = formatter.string(from: Date())
-        self.lblFecha.text = myString
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onBtnCrearAvancePressed(_ sender: Any) {
-        
-        
-        //Get profeID
+    @IBAction func Agregar(_ sender: Any) {
         let userDefaults = UserDefaults.standard
+        let id : Int = userDefaults.integer(forKey: "UserId")
+        //var idprofe = ""
+        //idprofe = String(id)
         
-        //Get padreID
-        let tutoriaId : Int = userDefaults.integer(forKey: "selectedPadreAvancedId")
+        let parameters : Parameters = ["fechainicio" : dpInicio.date, "id_profesor" : id]
         
-        let currentDateTime = Date()
-        
-        
-        
-        let parameters : Parameters = ["idTutoria" : tutoriaId, "Description" : self.txtDescripcion.text!, "fecha" : currentDateTime]
-        
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/resumenclases", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/suscripcions", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result

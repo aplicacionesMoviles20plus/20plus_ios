@@ -1,21 +1,18 @@
 //
-//  MisClasesProfeViewController.swift
+//  MisSuscripcionesProfeTableViewController.swift
 //  20plus
 //
-//  Created by Alumnos on 16/06/18.
+//  Created by Cristian Trigo on 6/29/18.
 //  Copyright © 2018 renato. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisClasesProfeViewController: UITableViewController {
+class MisSuscripcionesProfeTableViewController: UITableViewController {
 
-    var tutoriaIds = [Int]()
     var id = 0
-    var arreglo = [tutoria]()
-    var selectedRow: Int = 0
-    
+    var arreglo = [suscripcion]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,48 +32,27 @@ class MisClasesProfeViewController: UITableViewController {
         let userDefaults = UserDefaults.standard
         let id : Int = userDefaults.integer(forKey: "UserId")
         var idprofe = ""
-        var idhorario = 0
         idprofe = String(id)
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_horario").responseJSON{
-            response in
-            if let json1 = response.result.value{
-                let sJSON1 = JSON(json1)
-                for(_,subJson1):(String, JSON) in sJSON1{
-                    if(subJson1["id_profesor"].intValue==id){
-                    idhorario=subJson1["id"].intValue
-                    self.tutoriaIds.append(subJson1["id"].intValue)
-                    }
-                }}
-            for index in self.tutoriaIds{
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias").responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias?idpadre="+idprofe).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    if(subJson["id_horario"].intValue==index){
-                    let objEntidad = tutoria()
-                    objEntidad.idtutoria=subJson["idtutoria"].intValue
-                    objEntidad.comentario=subJson["comentario"].stringValue
-                    objEntidad.curso=subJson["curso"].stringValue
-                    objEntidad.estado=subJson["estado"].stringValue
-                    objEntidad.numerohoras=subJson["numerohoras"].intValue
-                    objEntidad.precio=subJson["precio"].doubleValue
+                    let objEntidad = suscripcion()
+                    objEntidad.fechafin=subJson["fechafin"].stringValue
+                    objEntidad.fechainicio=subJson["fechainicio"].stringValue
+                    objEntidad.id_profesor=subJson["id_profesor"].intValue
+                    objEntidad.idsuscripcion = subJson["idsuscripcion"].intValue
                     self.arreglo.append(objEntidad)
-                    }
                 }
                 self.tableView.reloadData()
-            }}} }}
-        
-        
-        
-
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        
-        
-        //commit random
         return 1
     }
 
@@ -90,26 +66,12 @@ class MisClasesProfeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].curso + "-" + arreglo[indexPath.row].estado
-        selectedRow = indexPath.row
+        cell.textLabel?.text=arreglo[indexPath.row].fechainicio+"-"+arreglo[indexPath.row].fechafin
+        
         return cell
     }
- 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if( segue.identifier == "ver" ){
-            if let controller = segue.destination as? VerClaseViewController {
-                controller.clase = arreglo[self.selectedRow].idtutoria
-            }
-        }
-    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(myItems[indexPath.row].name)
-        self.selectedRow = indexPath.row
-        self.performSegue(withIdentifier: "ver", sender: self)
-    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

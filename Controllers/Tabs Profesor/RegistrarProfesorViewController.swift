@@ -121,17 +121,26 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
         var idcurso = 0
         var idhorario = 0
         var idzona = 0
-        
         let userDefaults = UserDefaults.standard
+        /*
+        let correo : String = userDefaults.string(forKey: "email")!
+        let password : String = userDefaults.string(forKey: "password")!
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?email=" + correo + "&password=" + password).responseJSON { response in
+            let sJson = JSON(response.result.value)
+            if(sJson["idprofesor"] != JSON.null){
+                userDefaults.set(sJson["idprofesor"].intValue, forKey: "UserId")
+            }
+        }*/
+        
+        
+        
         let userId : Int = userDefaults.integer(forKey: "UserId")
         
         if let objCurso : cursoItem = self.cursoArray[self.pvCursos.selectedRow(inComponent: 0)]{
             idcurso = objCurso.idcursogrado
         }
-        
         let parameters1 : Parameters = ["id_profesor" : userId,
                                         "id_cursogrado" : idcurso]
-        
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_cursogrado", method: .post, parameters: parameters1)
         
         if let objHorario : horario = self.horarioArray[self.pvHorario.selectedRow(inComponent: 0)]{
@@ -141,7 +150,6 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
         let parameters2 : Parameters = ["id_profesor" : userId,
                                        "id_horario" : idhorario,
                                        "estado" : "Disponible"]
-        
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_horario", method: .post, parameters: parameters2)
         
         if let objZona : zona = self.distritoArray[self.pvDistrito.selectedRow(inComponent: 0)]{
@@ -149,7 +157,6 @@ class RegistrarProfesorViewController: UIViewController,UIPickerViewDataSource,U
         }
         let parameters3 : Parameters = ["id_profe" : userId,
                                        "id_zona" : idzona]
-        
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_zona", method: .post, parameters: parameters3)
         
     }

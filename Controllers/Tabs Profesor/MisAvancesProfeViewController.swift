@@ -12,7 +12,10 @@ import SwiftyJSON
 class MisAvancesProfeViewController: UITableViewController {
 
     var id = ""
-    var arreglo = [suscripcion]()
+    var arregloTutoria = [tutoria]()
+    var arregloAvance = [resumenclase]()
+    var selectedRow: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,24 +32,38 @@ class MisAvancesProfeViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-         let userDefaults = UserDefaults.standard
-        id = userDefaults.string(forKey: "UserId")!
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/suscripcions?idprofesor="+id).responseJSON{
+        var idtutoria = ""
+        let userDefaults = UserDefaults.standard
+        let id : Int = userDefaults.integer(forKey: "UserId")
+        var idprofe = ""
+        idprofe = String(id)
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesor_horario").responseJSON{
+            response in
+            if let json1 = response.result.value{
+                let sJSON1 = JSON(json1)
+                for(_,subJson1):(String, JSON) in sJSON1{
+                    if(subJson1["id_profesor"].intValue==id){
+                        idtutoria=subJson1["idtutoria"].stringValue
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias?id="+idtutoria).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = suscripcion()
-                    objEntidad.fechafin=subJson["fechafin"].stringValue
-                    objEntidad.fechainicio=subJson["fechainicio"].stringValue
-                    objEntidad.id_profesor=subJson["id_profesor"].intValue
-                    objEntidad.idsuscripcion = subJson["idsuscripcion"].intValue
-                    self.arreglo.append(objEntidad)
-                }
-                self.tableView.reloadData()
-            }
-        }
-    }
+                    idtutoria=subJson["idtutoria"].stringValue
+                    Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/resumenclases?idtutoria="+idtutoria).responseJSON{
+                        response in
+                        if let json2 = response.result.value{
+                            let sJSON2 = JSON(json2)
+                            for(_,subJson2):(String, JSON) in sJSON2{
+                                let objEntidad = resumenclase()
+                                objEntidad.descripcion=subJson2["descripcion"].stringValue
+                                objEntidad.id_tutoria=subJson2["id_tutoria"].intValue
+                                objEntidad.idresumen=subJson2["idresumen"].intValue
+                                objEntidad.fecha=subJson2["fecha"].stringValue
+                                self.arregloAvance.append(objEntidad)
+                            }
+                            self.tableView.reloadData()
+                        }}}}}}}}}}
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +73,7 @@ class MisAvancesProfeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arreglo.count
+        return arregloAvance.count
     }
 
     
@@ -64,20 +81,36 @@ class MisAvancesProfeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].fechainicio+"-"+arreglo[indexPath.row].fechafin
+        cell.textLabel?.text=arregloAvance[indexPath.row].fecha+":"+arregloAvance[indexPath.row].descripcion
 
+        selectedRow = indexPath.row
         return cell
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if( segue.identifier == "ver" ){
+            if let controller = segue.destination as? VerAvanceViewController {
+                controller.avance = arregloAvance[self.selectedRow].idresumen
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print(myItems[indexPath.row].name)
+        self.selectedRow = indexPath.row
+        self.performSegue(withIdentifier: "ver", sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
+        
         return true
     }
-    */
-
+    
+*/
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
