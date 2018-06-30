@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class VerAvanceViewController: UIViewController {
-
+    var avance = 0
     
     @IBOutlet weak var lblFecha: UILabel!
     @IBOutlet weak var lblDescriptioon: UILabel!
@@ -28,9 +28,9 @@ class VerAvanceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         //Get profeID
-        let userDefaults = UserDefaults.standard
+        //let userDefaults = UserDefaults.standard
         //Get padreID
-        let tutoriaId : Int = userDefaults.integer(forKey: "selectedPadreAvancedId")
+        //let tutoriaId : Int = userDefaults.integer(forKey: "selectedPadreAvancedId")
         
         
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/resumenclases").responseJSON{
@@ -39,7 +39,7 @@ class VerAvanceViewController: UIViewController {
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
                     
-                    if(subJson["id_padre"].intValue == tutoriaId){
+                    if(subJson["idtutoria"].intValue == self.avance){
                      
                         self.lblDescriptioon.text=subJson["descripcion"].stringValue
                         self.lblFecha.text=subJson["descripcion"].stringValue

@@ -11,7 +11,7 @@ import UIKit
 class resumenclase: NSObject {
     var idresumen : Int = 0
     var descripcion : String = ""
-    var fecha : Date = Date()
+    var fecha : String = ""
     var id_tutoria : Int = 0
     
 }

@@ -47,16 +47,20 @@ class RegistrarTipoViewController: UIViewController {
         
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors", method: .post, parameters: parameters)
         
+        
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?email=" + correo + "&password=" + password).responseJSON { response in
             let sJson = JSON(response.result.value)
-            self.id = sJson["idprofesor"].intValue
-            userDefaults.set(sJson["idprofesor"].intValue, forKey: "UserId")
+            if(sJson["idprofesor"] != JSON.null){
+                userDefaults.set(sJson["idprofesor"].intValue, forKey: "UserId")
+            }
+            //self.id = sJson["idprofesor"].intValue
+            //userDefaults.set(self.id, forKey: "UserId")
         }
         
     }
     
     @IBAction func RegistrarPadre(_ sender: Any) {
-        let userDefaults = UserDefaults.standard
+        //let userDefaults = UserDefaults.standard
         let parameters : Parameters = ["nombre" : nombre,
                                        "apellido" : apellido,
                                        "password" : password,
@@ -69,10 +73,10 @@ class RegistrarTipoViewController: UIViewController {
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/padres?email=" + correo + "&password=" + password).responseJSON { response in
             let sJson = JSON(response.result.value)
             self.id = sJson["idpadre"].intValue
-            userDefaults.set(sJson["idpadre"].intValue, forKey: "UserId")
+            UserDefaults.standard.set(sJson["idpadre"].intValue, forKey: "UserId")
         }
     }
-    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "idprofe"{
             let enviarid=segue.destination as! RegistrarProfesorViewController
@@ -89,9 +93,9 @@ class RegistrarTipoViewController: UIViewController {
             enviaridFavoritos.id=id
             enviaridMensajes.id=id
             enviaridMicuenta.id=id
-             */
+         */
         }
-    }
+    }*/
     /*
     // MARK: - Navigation
 

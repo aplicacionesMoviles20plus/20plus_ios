@@ -9,21 +9,34 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+class CrearAvanceViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+    var arreglo = [tutoria]()
 
-
-class CrearAvanceViewController: UIViewController {
-
+    @IBOutlet weak var dpTutoria: UIPickerView!
     
     @IBOutlet weak var txtDescripcion: UITextField!
     @IBOutlet weak var lblFecha: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.arreglo.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arreglo[row].curso + "-" + arreglo[row].estado + "-" + arreglo[row].hora
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dpTutoria.dataSource=self
+        dpTutoria.delegate=self
+        // Do any additional setup after loading the view.
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         let formatter = DateFormatter()
@@ -33,6 +46,28 @@ class CrearAvanceViewController: UIViewController {
         let myString = formatter.string(from: Date())
         self.lblFecha.text = myString
         
+        let userDefaults = UserDefaults.standard
+        let id : Int = userDefaults.integer(forKey: "UserId")
+        var idprofe = ""
+        idprofe = String(id)
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias?idpadre="+idprofe).responseJSON{
+            response in
+            if let json = response.result.value{
+                let sJSON = JSON(json)
+                for(_,subJson):(String, JSON) in sJSON{
+                    let objEntidad = tutoria()
+                    objEntidad.idtutoria=subJson["idtutoria"].intValue
+                    objEntidad.comentario=subJson["comentario"].stringValue
+                    objEntidad.curso=subJson["curso"].stringValue
+                    objEntidad.estado=subJson["estado"].stringValue
+                    objEntidad.hora = subJson["hora"].stringValue
+                    objEntidad.numerohoras=subJson["numerohoras"].intValue
+                    objEntidad.precio=subJson["precio"].doubleValue
+                    self.arreglo.append(objEntidad)
+                }
+                self.dpTutoria.reloadAllComponents()
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,14 +79,15 @@ class CrearAvanceViewController: UIViewController {
         
         
         //Get profeID
-        let userDefaults = UserDefaults.standard
+        
         
         //Get padreID
-        let tutoriaId : Int = userDefaults.integer(forKey: "selectedPadreAvancedId")
-        
+        //let tutoriaId : Int = userDefaults.integer(forKey: "selectedPadreAvancedId")
+        var tutoriaId = 0
         let currentDateTime = Date()
-        
-        
+        if let objEntidad : tutoria = self.arreglo[self.dpTutoria.selectedRow(inComponent: 0)]{
+            tutoriaId = objEntidad.idtutoria
+        }
         
         let parameters : Parameters = ["idTutoria" : tutoriaId, "Description" : self.txtDescripcion.text!, "fecha" : currentDateTime]
         

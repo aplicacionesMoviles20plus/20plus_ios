@@ -7,7 +7,25 @@
 		<key>20plus.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>88200FA820BE378A000A5A1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88200FBC20BE37AD000A5A1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88200FC720BE37AD000A5A1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
