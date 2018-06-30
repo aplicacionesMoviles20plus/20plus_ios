@@ -1,22 +1,22 @@
 //
-//  BuscarProfesoresViewController.swift
+//  FavoritosController.swift
 //  20plus
 //
-//  Created by renato mercado luna on 6/15/18.
+//  Created by Alumnos on 16/06/18.
 //  Copyright © 2018 renato. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
-
-
-class BuscarProfesoresViewController: UITableViewController {
-
+class FavoritosController: UITableViewController {
     var id = 0
-    var profesors = [profesor]()
-    var selectedRow: Int = 0
+    var arreglo = [profesorfavorito]()
+    var arregloProfesores = [profesor]()
     
+    
+    
+    var selectedRow: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,30 +33,45 @@ class BuscarProfesoresViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-       
-        self.profesors.removeAll()
-        Alamofire.request("http://192.168.1.2:9990/api/profesors").responseJSON { response in
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-                //Read json
-                let sJson = JSON(json)
-                
-                for (_,subJson):(String, JSON) in sJson {
-                    // Do something you want
-                    let objItem = profesor()
-                    objItem.nombre = subJson["nombre"].stringValue
-                    objItem.apellido = subJson["apellido"].stringValue
-                    objItem.calificacion = subJson["calificacion"].intValue
-                    objItem.celular = subJson["celular"].intValue
-                    objItem.descripcion = subJson["descripcion"].stringValue
-                    objItem.experiencia = subJson["experiencia"].stringValue
-                    self.profesors.append(objItem)
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesorfavoritoes").responseJSON{
+            response in
+            if let json = response.result.value{
+                let sJSON = JSON(json)
+                for(_,subJson):(String, JSON) in sJSON{
+                    let objEntidad = profesorfavorito()
+                    objEntidad.id_padre=subJson["id_padre"].intValue
+                    objEntidad.id_profesor=subJson["id_profesor"].intValue
+                    self.arreglo.append(objEntidad)
                 }
             }
+        }
+        
+        for index in self.arreglo{
+            print("lookgin for porfessor")
+            var id : Int = index.id_profesor
+            Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?id=" + String(id) ).responseJSON{
+                response in
+                if let json = response.result.value{
+                    let sJSON = JSON(json)
+                    for(_,subJson):(String, JSON) in sJSON{
+                        
+                        let objItem = profesor()
+                        objItem.nombre=subJson["nombre"].stringValue
+                        objItem.apellido = subJson["apellido"].stringValue
+                        objItem.calificacion = subJson["calificacion"].intValue
+                        objItem.celular = subJson["celular"].intValue
+                        objItem.descripcion = subJson["descripcion"].stringValue
+                        objItem.experiencia = subJson["experiencia"].stringValue
+                        self.arregloProfesores.append(objItem)
+                    }
+                }
+            }
+            
             self.tableView.reloadData()
         }
+        
+        
     }
-    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,27 +81,26 @@ class BuscarProfesoresViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.profesors.count
+        return arregloProfesores.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "home cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celdaProfeFavortio", for: indexPath)
 
-        cell.textLabel?.text = profesors[indexPath.row].nombre + " " + String(profesors[indexPath.row].calificacion)
-        
-        selectedRow = indexPath.row
         // Configure the cell...
-
+        cell.textLabel?.text = self.arregloProfesores[indexPath.row].nombre + " " + String(self.arregloProfesores[indexPath.row].calificacion)
         return cell
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if( segue.identifier == "detailProf" ){
-            if let controller = segue.destination as? ProfesorInfoViewController {
-                controller.profesor = profesors[self.selectedRow]
+        if( segue.identifier == "segueFavProfe" ){
+            if let controller = segue.destination as? MyProfessorFavViewController {
+                controller.profesor = arregloProfesores[self.selectedRow]
             }
         }
     }
@@ -94,8 +108,10 @@ class BuscarProfesoresViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(myItems[indexPath.row].name)
         self.selectedRow = indexPath.row
-        self.performSegue(withIdentifier: "detailProf", sender: self)
+        self.performSegue(withIdentifier: "segueFavProfe", sender: self)
     }
+
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

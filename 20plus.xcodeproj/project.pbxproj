@@ -47,6 +47,10 @@
 		FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9220D4A3C2002AB1D1 /* padre.swift */; };
 		FDCFDF9620D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */; };
 		FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */; };
+		FDF7543620E72E480032B751 /* SolictarClasePadreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543520E72E470032B751 /* SolictarClasePadreViewController.swift */; };
+		FDF7543A20E7534F0032B751 /* VerTutoriasPadreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543920E7534F0032B751 /* VerTutoriasPadreTableViewController.swift */; };
+		FDF7543C20E755310032B751 /* tutoriaMarcadaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543B20E755310032B751 /* tutoriaMarcadaViewController.swift */; };
+		FDF7543E20E763E40032B751 /* MyProfessorFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7543D20E763E40032B751 /* MyProfessorFavViewController.swift */; };
 		FDFC2CF320E69855004B7209 /* VerAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */; };
 		FDFC2CF420E69855004B7209 /* CrearAvanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +79,7 @@
 		7ABF428C52DBD991DD895CD0 /* Pods-20plus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20plus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-20plus/Pods-20plus.debug.xcconfig"; sourceTree = "<group>"; };
 		7FF0973B20D53638001B1AAE /* FavoritosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosController.swift; sourceTree = "<group>"; };
 		7FF0973D20D53694001B1AAE /* MisMensajesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisMensajesViewController.swift; sourceTree = "<group>"; };
-		7FF0973F20D536F6001B1AAE /* MisClasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisClasesViewController.swift; sourceTree = "<group>"; };
+		7FF0973F20D536F6001B1AAE /* MisTutoriasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisTutoriasViewController.swift; sourceTree = "<group>"; };
 		7FF0974120D53DC7001B1AAE /* MisMensajesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisMensajesProfeViewController.swift; sourceTree = "<group>"; };
 		7FF0974520D53E04001B1AAE /* MisClasesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisClasesProfeViewController.swift; sourceTree = "<group>"; };
 		7FF0974720D53E1D001B1AAE /* MisAvancesProfeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisAvancesProfeViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,10 @@
 		FDCFDF9220D4A3C2002AB1D1 /* padre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = padre.swift; sourceTree = "<group>"; };
 		FDCFDF9520D4AC30002AB1D1 /* RegistrarUsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarUsuarioViewController.swift; sourceTree = "<group>"; };
 		FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuscarProfesoresViewController.swift; sourceTree = "<group>"; };
+		FDF7543520E72E470032B751 /* SolictarClasePadreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolictarClasePadreViewController.swift; sourceTree = "<group>"; };
+		FDF7543920E7534F0032B751 /* VerTutoriasPadreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerTutoriasPadreTableViewController.swift; sourceTree = "<group>"; };
+		FDF7543B20E755310032B751 /* tutoriaMarcadaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutoriaMarcadaViewController.swift; sourceTree = "<group>"; };
+		FDF7543D20E763E40032B751 /* MyProfessorFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfessorFavViewController.swift; sourceTree = "<group>"; };
 		FDFC2CF020E69854004B7209 /* VerAvanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerAvanceViewController.swift; sourceTree = "<group>"; };
 		FDFC2CF120E69854004B7209 /* CrearAvanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrearAvanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,12 +175,11 @@
 		7FF0973520D5359B001B1AAE /* Tabs Padre */ = {
 			isa = PBXGroup;
 			children = (
-				FD4D2F6A20D8B14B00E7851A /* SolicitarClase */,
-				FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */,
-				7FF0973B20D53638001B1AAE /* FavoritosController.swift */,
-				7FF0973D20D53694001B1AAE /* MisMensajesViewController.swift */,
-				7FF0973F20D536F6001B1AAE /* MisClasesViewController.swift */,
-				7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */,
+				FDFC2D0220E6BCE2004B7209 /* miCuenta */,
+				FDFC2D0120E69DA7004B7209 /* mensajesPadre */,
+				FDFC2D0020E69D8B004B7209 /* profeFavorito */,
+				FDFC2CFF20E69B3E004B7209 /* BuscarPorfesor */,
+				FD4D2F6A20D8B14B00E7851A /* MisClses */,
 			);
 			path = "Tabs Padre";
 			sourceTree = "<group>";
@@ -260,12 +267,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD4D2F6A20D8B14B00E7851A /* SolicitarClase */ = {
+		FD4D2F6A20D8B14B00E7851A /* MisClses */ = {
 			isa = PBXGroup;
 			children = (
-				FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */,
+				7FF0973F20D536F6001B1AAE /* MisTutoriasViewController.swift */,
+				FDF7543920E7534F0032B751 /* VerTutoriasPadreTableViewController.swift */,
+				FDF7543B20E755310032B751 /* tutoriaMarcadaViewController.swift */,
 			);
-			path = SolicitarClase;
+			path = MisClses;
 			sourceTree = "<group>";
 		};
 		FDCFDF9120D4A375002AB1D1 /* Entities */ = {
@@ -317,6 +326,41 @@
 			children = (
 			);
 			path = "mi cuenta";
+			sourceTree = "<group>";
+		};
+		FDFC2CFF20E69B3E004B7209 /* BuscarPorfesor */ = {
+			isa = PBXGroup;
+			children = (
+				FDCFDF9720D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift */,
+				FD4D2F6B20D8B18F00E7851A /* ProfesorInfoViewController.swift */,
+				FDF7543520E72E470032B751 /* SolictarClasePadreViewController.swift */,
+			);
+			path = BuscarPorfesor;
+			sourceTree = "<group>";
+		};
+		FDFC2D0020E69D8B004B7209 /* profeFavorito */ = {
+			isa = PBXGroup;
+			children = (
+				7FF0973B20D53638001B1AAE /* FavoritosController.swift */,
+				FDF7543D20E763E40032B751 /* MyProfessorFavViewController.swift */,
+			);
+			path = profeFavorito;
+			sourceTree = "<group>";
+		};
+		FDFC2D0120E69DA7004B7209 /* mensajesPadre */ = {
+			isa = PBXGroup;
+			children = (
+				7FF0973D20D53694001B1AAE /* MisMensajesViewController.swift */,
+			);
+			path = mensajesPadre;
+			sourceTree = "<group>";
+		};
+		FDFC2D0220E6BCE2004B7209 /* miCuenta */ = {
+			isa = PBXGroup;
+			children = (
+				7FF0974920D53E4E001B1AAE /* MiCuentaPadreViewController.swift */,
+			);
+			path = miCuenta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,6 +579,7 @@
 				88200FAF20BE378A000A5A1A /* ViewController.swift in Sources */,
 				84ED987420E0A71A00BF6BC2 /* RegistrarProfesorViewController.swift in Sources */,
 				FDCFDF9820D4AD6E002AB1D1 /* BuscarProfesoresViewController.swift in Sources */,
+				FDF7543A20E7534F0032B751 /* VerTutoriasPadreTableViewController.swift in Sources */,
 				84ED987620E0BCC500BF6BC2 /* RegistrarMetodoPagoViewController.swift in Sources */,
 				7FF0974620D53E04001B1AAE /* MisClasesProfeViewController.swift in Sources */,
 				7FF0974A20D53E4E001B1AAE /* MiCuentaPadreViewController.swift in Sources */,
@@ -560,7 +605,10 @@
 				84ED986E20E092F200BF6BC2 /* servicio.swift in Sources */,
 				FDCFDF9320D4A3C2002AB1D1 /* padre.swift in Sources */,
 				7FF0974820D53E1D001B1AAE /* MisAvancesProfeViewController.swift in Sources */,
+				FDF7543E20E763E40032B751 /* MyProfessorFavViewController.swift in Sources */,
+				FDF7543C20E755310032B751 /* tutoriaMarcadaViewController.swift in Sources */,
 				FD4D2F6C20D8B18F00E7851A /* ProfesorInfoViewController.swift in Sources */,
+				FDF7543620E72E480032B751 /* SolictarClasePadreViewController.swift in Sources */,
 				7FF0974220D53DC7001B1AAE /* MisMensajesProfeViewController.swift in Sources */,
 				88200FAD20BE378A000A5A1A /* AppDelegate.swift in Sources */,
 				FDFC2CF320E69855004B7209 /* VerAvanceViewController.swift in Sources */,

@@ -1,17 +1,23 @@
 //
-//  MisClasesViewController.swift
+//  VerTutoriasPadreTableViewController.swift
 //  20plus
 //
-//  Created by Alumnos on 16/06/18.
+//  Created by renato mercado luna on 6/29/18.
 //  Copyright © 2018 renato. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
-class MisClasesViewController: UITableViewController {
+
+class VerTutoriasPadreTableViewController: UITableViewController {
+
+    
+    
     var id = 0
     var arreglo = [tutoria]()
+    var selectedRow: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,24 +32,35 @@ class MisClasesViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/tutorias").responseJSON{
+        
+        
+        let userDefaults = UserDefaults.standard
+        let userId : Int = userDefaults.integer(forKey: "UserId")
+        
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias?idpadre=" + String(userId)).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
                     let objEntidad = tutoria()
-                    objEntidad.comentario=subJson["comentario"].stringValue
-                    objEntidad.curso=subJson["curso"].stringValue
-                    objEntidad.estado=subJson["estado"].stringValue
-                    objEntidad.calificacion = subJson["calificacion"].intValue
+                    objEntidad.id_padre=subJson["id_padre"].intValue
+                    objEntidad.hora=subJson["hora"].stringValue
+                    objEntidad.numerohoras=subJson["numerohoras"].intValue
+                    objEntidad.curso = subJson["curso"].stringValue
+                    objEntidad.estado = subJson["estado"].stringValue
                     self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()
             }
         }
     }
+
+    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,13 +75,28 @@ class MisClasesViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tuto cell", for: indexPath)
 
-        // Configure the cell..
-        cell.textLabel?.text=arreglo[indexPath.row].comentario
+        // Configure the cell...
+        cell.textLabel?.text=" Para la hora " + arreglo[indexPath.row].hora + " el curso " + arreglo[indexPath.row].curso
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if( segue.identifier == "detailTUTORIA" ){
+            if let controller = segue.destination as? tutoriaMarcadaViewController {
+                controller.tutoria = arreglo[self.selectedRow]
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print(myItems[indexPath.row].name)
+        self.selectedRow = indexPath.row
+        self.performSegue(withIdentifier: "detailTUTORIA", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.

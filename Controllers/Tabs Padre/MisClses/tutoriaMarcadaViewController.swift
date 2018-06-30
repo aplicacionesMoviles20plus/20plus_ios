@@ -1,22 +1,47 @@
 //
-//  MiCuentaPadreViewController.swift
+//  tutoriaMarcadaViewController.swift
 //  20plus
 //
-//  Created by Alumnos on 16/06/18.
+//  Created by renato mercado luna on 6/29/18.
 //  Copyright © 2018 renato. All rights reserved.
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-class MiCuentaPadreViewController: UIViewController {
-    var id = 0
+
+class tutoriaMarcadaViewController: UIViewController {
+    
+    var tutoria: tutoria? = nil
+    @IBOutlet weak var lblHora: UILabel!
+    @IBOutlet weak var lblNumeroDeHoras: UILabel!
+    
+    @IBOutlet weak var lblCurso: UILabel!
+    @IBOutlet weak var lblEstado: UILabel!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+        
+        
+        var number = 0
+        number = (tutoria?.numerohoras)!
+        
+        
+        lblHora.text = tutoria?.hora
+        lblNumeroDeHoras.text = String(number)
+        lblEstado.text = tutoria?.estado
+        lblCurso.text = tutoria?.curso
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

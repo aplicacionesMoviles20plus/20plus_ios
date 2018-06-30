@@ -1,5 +1,5 @@
 //
-//  FavoritosController.swift
+//  MisClasesViewController.swift
 //  20plus
 //
 //  Created by Alumnos on 16/06/18.
@@ -9,9 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-class FavoritosController: UITableViewController {
+class MisTutoriasViewController: UITableViewController {
     var id = 0
-    var arreglo = [profesor]()
+    var arreglo = [tutoria]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,16 +28,21 @@ class FavoritosController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://192.168.1.4:9990/api/profesors").responseJSON{
+       
+        
+        let userDefaults = UserDefaults.standard
+        let userId : Int = userDefaults.integer(forKey: "UserId")
+        
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/tutorias?idpadre="+userId).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
                 for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = profesor()
-                    objEntidad.apellido=subJson["apellido"].stringValue
-                    objEntidad.email=subJson["email"].stringValue
-                    objEntidad.nombre=subJson["nombre"].stringValue
-                    objEntidad.dni = subJson["dni"].intValue
+                    let objEntidad = tutoria()
+                    objEntidad.comentario=subJson["comentario"].stringValue
+                    objEntidad.curso=subJson["curso"].stringValue
+                    objEntidad.estado=subJson["estado"].stringValue
+                    objEntidad.calificacion = subJson["calificacion"].intValue
                     self.arreglo.append(objEntidad)
                 }
                 self.tableView.reloadData()
@@ -60,11 +65,11 @@ class FavoritosController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdas", for: indexPath)
 
-        // Configure the cell...
-        cell.textLabel?.text=arreglo[indexPath.row].apellido
+        // Configure the cell..
+        cell.textLabel?.text=arreglo[indexPath.row].comentario
         return cell
     }
-
+    
 
     /*
     // Override to support conditional editing of the table view.
