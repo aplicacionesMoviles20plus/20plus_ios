@@ -38,8 +38,10 @@ class VerMensajeDeProfesorViewController: UITableViewController {
         
         var dummyId : Int = 0
         dummyId = (profesor?.idprofesor)!
+        print(userId)
+        print(dummyId)
         
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/mensajes?idpadre=" + String(userId) + "&idprofe" + String(dummyId)).responseJSON{
+        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/mensajes?idpadre=" + String(userId) + "&idprofe=" + String(dummyId)).responseJSON{
             response in
             if let json = response.result.value{
                 let sJSON = JSON(json)
