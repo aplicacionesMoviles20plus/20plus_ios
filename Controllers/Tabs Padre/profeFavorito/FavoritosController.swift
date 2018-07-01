@@ -34,25 +34,11 @@ class FavoritosController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesorfavoritoes").responseJSON{
-            response in
-            if let json = response.result.value{
-                let sJSON = JSON(json)
-                for(_,subJson):(String, JSON) in sJSON{
-                    let objEntidad = profesorfavorito()
-                    objEntidad.id_padre=subJson["id_padre"].intValue
-                    objEntidad.id_profesor=subJson["id_profesor"].intValue
-                    self.arreglo.append(objEntidad)
-                }
-            }
-        }
-        
-        for index in self.arreglo{
-            print("lookgin for porfessor")
-            var id : Int = index.id_profesor
-            print(id)
+         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesorfavoritoes").responseJSON{
+       			
+			var id : Int = 6
 
-            Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?id=" + String(id) ).responseJSON{
+            Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?idpadre=" + String(id) ).responseJSON{
                 response in
                 if let json = response.result.value{
                     let sJSON = JSON(json)
@@ -74,7 +60,7 @@ class FavoritosController: UITableViewController {
                 
             }
             
-        }
+}
         self.tableView.reloadData()
         
     }
