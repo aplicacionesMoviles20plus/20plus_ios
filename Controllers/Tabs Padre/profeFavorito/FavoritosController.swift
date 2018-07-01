@@ -34,9 +34,13 @@ class FavoritosController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesorfavoritoes").responseJSON{
-       			
-			var id : Int = 6
+         //Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/apiprofesorfavoritoes").responseJSON{
+        
+        
+        
+        let userDefaults = UserDefaults.standard
+        let userId : Int = userDefaults.integer(forKey: "UserId")
+        id = userId
 
             Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/profesors?idpadre=" + String(id) ).responseJSON{
                 response in
@@ -58,7 +62,7 @@ class FavoritosController: UITableViewController {
                 }
                 
                 
-            }
+            
             
 }
         self.tableView.reloadData()

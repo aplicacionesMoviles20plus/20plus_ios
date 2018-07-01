@@ -33,7 +33,7 @@ class CrearMnesajePadreViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         let padreId : Int = userDefaults.integer(forKey: "UserId")
         
-        let parameters : Parameters = ["hora" : "","fecha" : "","contenido" : txtMensaje.text,"id_padre" : padreId,"id_profe" : 27 ,"id_padre" : 6,"remitente" : "El padre"]
+        let parameters : Parameters = ["hora" : "","fecha" : "","contenido" : txtMensaje.text,"id_padre" : padreId,"id_profe" : 27 ,"remitente" : "El padre"]
         
         Alamofire.request("http://vmdev1.nexolink.com:90/TeachersAPI/api/mensajes", method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
